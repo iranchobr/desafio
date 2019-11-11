@@ -43,7 +43,6 @@ Fazer um CRUD(operações de criar, recuperar, atualizar e deletar) das entidade
   - [ ] sexo(char M/F)
   - [ ] vr_peso
   - [ ] dt_nascimento
-  - [ ] dt_nascimento
 - [ ] animal_lote
   - [ ] id
   - [ ] no_lote
