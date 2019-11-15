@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "desafio_irancho_user",
+    "password": "desafio_irancho_senha",
+    "database": "desafio_irancho",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

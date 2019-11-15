@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# ignorar volume do mysql usando pra persistencia dos dados do container
+mysql/
+
+# ignorar pasta de configuração do vscode
+.vscode
