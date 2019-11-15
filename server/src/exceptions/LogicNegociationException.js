@@ -2,8 +2,8 @@ const IRanchoException = require("./IRanchoException");
 
 class LogicNegociationException extends IRanchoException {
 
-    constructor(message, code) {
-        super(message, code);
+    constructor(message, param = null, code) {
+        super(message, param, code);
         this.name = "NotFoundException";
     }
 }

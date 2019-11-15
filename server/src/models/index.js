@@ -34,4 +34,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Animals.belongsTo(db.Farms, { foreignKey: "farm_id" });
+db.Animals.belongsTo(db.Peoples, { foreignKey: "people_id" })
+
 module.exports = db;

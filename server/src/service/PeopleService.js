@@ -16,7 +16,7 @@ class PeopleService {
     async findById(id) {
         const people = await this._repository.findById(id);
         if (!people) {
-            throw new NotFoundException(MessageException.NOT_FOUND, 404);
+            throw new NotFoundException(MessageException.NOT_FOUND, "people", 404);
         }
 
         return people;
@@ -26,7 +26,7 @@ class PeopleService {
         const email = newDatas.email || "";
         const register = await this._repository.findByEmail(email);
         if (register) {
-            throw new LogicNegociationException(MessageException.EMAIL_PEOPLE_EXIST, 409);
+            throw new LogicNegociationException(MessageException.EMAIL_PEOPLE_EXIST, null, 409);
         }
         return this._repository.create(newDatas);
     }
@@ -34,7 +34,7 @@ class PeopleService {
     async remove(id) {
         const register = await this._repository.findById(id);
         if (!register) {
-            throw new NotFoundException(MessageException.NOT_FOUND, 404);
+            throw new NotFoundException(MessageException.NOT_FOUND, "people", 404);
         }
         return this._repository.remove(id);
     }
@@ -42,7 +42,7 @@ class PeopleService {
     async update(id, datasModified) {
         const register = await this._repository.findById(id);
         if (!register) {
-            throw new NotFoundException(MessageException.NOT_FOUND, 404);
+            throw new NotFoundException(MessageException.NOT_FOUND, "people", 404);
         }
 
         const email = datasModified.email || "";
@@ -50,7 +50,7 @@ class PeopleService {
             .findByEmailAndIdDifferenceMencionated(email, id);
             
         if (registerWithNameIdDifference) {
-            throw new LogicNegociationException(MessageException.EMAIL_PEOPLE_EXIST, 409);
+            throw new LogicNegociationException(MessageException.EMAIL_PEOPLE_EXIST, null, 409);
         }
 
         return this._repository.update(id, datasModified);

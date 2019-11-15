@@ -1,9 +1,9 @@
-const FarmService = require("../service/FarmService");
+const AnimalService = require("../service/AnimalService");
 
-class FarmEndpoint {
+class AnimalEndpoint {
 
     constructor() {
-        this._service = new FarmService();
+        this._service = new AnimalService();
         this.findAll = this.findAll.bind(this);
         this.findById = this.findById.bind(this);
         this.create = this.create.bind(this);
@@ -13,8 +13,8 @@ class FarmEndpoint {
 
     async findAll(request, response, next) {
         try {
-            const farms = await this._service.findAll();
-            return response.json(farms);
+            const animals = await this._service.findAll();
+            return response.json(animals);
         } catch(error) {
             next(error);
         }
@@ -32,8 +32,8 @@ class FarmEndpoint {
 
     async create(request, response, next) {
         try {
-            const newFarm = request.body;
-            await this._service.create(newFarm);
+            const newAnimal = request.body;
+            await this._service.create(newAnimal);
             return response.sendStatus(201);
         } catch(error) {
             next(error);
@@ -62,4 +62,4 @@ class FarmEndpoint {
     }
 }
 
-module.exports = FarmEndpoint;
+module.exports = AnimalEndpoint;
