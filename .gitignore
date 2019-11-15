@@ -1,5 +1,7 @@
 # Logs
 logs
+./server/node_modules
+./server/.env
 *.log
 npm-debug.log*
 yarn-debug.log*
