@@ -36,5 +36,11 @@ db.Sequelize = Sequelize;
 
 db.Animals.belongsTo(db.Farms, { foreignKey: "farm_id" });
 db.Animals.belongsTo(db.Peoples, { foreignKey: "people_id" })
+db.Batchs.belongsToMany(db.Animals, { 
+  through: "BatchsAnimals", foreignKey: "batch_id", onDelete: 'CASCADE' 
+});
+db.Animals.belongsToMany(db.Batchs, { 
+  through: "BatchsAnimals", foreignKey: "animal_id", onDelete: 'CASCADE'
+});
 
 module.exports = db;
