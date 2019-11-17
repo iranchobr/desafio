@@ -46,10 +46,10 @@ class PeopleService {
         }
 
         const email = datasModified.email || "";
-        const registerWithNameIdDifference = await this._repository
+        const registerWithEmilIdDifference = await this._repository
             .findByEmailAndIdDifferenceMencionated(email, id);
             
-        if (registerWithNameIdDifference) {
+        if (registerWithEmailIdDifference) {
             throw new LogicNegociationException(MessageException.EMAIL_PEOPLE_EXIST, null, 409);
         }
 
