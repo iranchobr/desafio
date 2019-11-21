@@ -81,6 +81,7 @@ $ npx vue init webpack
 Rodar:
 npm install --save-dev css-loader node-sass sass-loader
 ```
-**Recomendações:**
-1. Começar pelo server, e para testar usar o postman ou insomnia.
-2. Ter uma pasta para o client e outra totalmente separada para o server.
+**Como organizar o código:**
+1. Dentro da pasta raiz deste repositório, crie uma pasta com o seu nome de usuário do github e faça todo o projeto lá.
+2. Começar pelo server, e para testar usar o postman ou insomnia.
+3. Ter uma pasta para o client e outra totalmente separada para o server.
