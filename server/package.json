@@ -4,6 +4,7 @@
   "description": "changelle irancho",
   "main": "./src/index.js",
   "scripts": {
+    "start": "nodejs ./src/index.js",
     "start:dev": "nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
