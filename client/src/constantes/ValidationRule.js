@@ -1,5 +1,73 @@
 export default ({
     FORM: {
+        BATCH: [
+            {
+                field: "name",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo nome é obrigatório!"
+                    }
+                ]
+            },
+            {
+                field: "date_last_movimentation",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo data última movimentação é obrigatório!"
+                    }
+                ]
+            },
+            {
+                field: "date_input",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo data entrada é obrigatório!"
+                    }
+                ]
+            },
+            {
+                field: "date_output",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo data de saída é obrigatório!"
+                    }
+                ]
+            },
+            {
+                field: "name",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo nome é obrigatório!"
+                    }
+                ]
+            },
+            {
+                field: "description",
+                rules: [
+                    {
+                        validation: "isLength",
+                        options: { min: 1 },
+                        valueExpected: true,
+                        messageValidation: "O campo descrição é obrigatório!"
+                    }
+                ]
+            },
+        ],
         ANIMAL: [
             {
                 field: "name",

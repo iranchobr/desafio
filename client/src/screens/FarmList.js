@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Col, SimpleTable, Box, Button } from "adminlte-2-react";
 import { ToastContainer } from "react-toastr";
 import Container from "./../components/template/Container";
-import "./../toastr.min.css";
-import "./../animate.min.css";
 import Farm from "../service/Farm";
 import NotFound from "../components/NotFound";
 import CONSTANTES from "../constantes/App";
@@ -63,7 +61,7 @@ export default class FarmList extends Component {
                                 <tbody>
                                     {
                                         this.state.farms.map(farm => (
-                                            <tr>
+                                            <tr key={farm.id}>
                                                 <td>{farm.id}</td>
                                                 <td>{farm.name}</td>
                                                 <td>

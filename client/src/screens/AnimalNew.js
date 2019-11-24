@@ -3,8 +3,6 @@ import { Col, SimpleTable, Box, Button } from "adminlte-2-react";
 import { ToastContainer } from "react-toastr";
 import Container from "./../components/template/Container";
 import Input from "./../components/form/Input";
-import "./../toastr.min.css";
-import "./../animate.min.css";
 import ValidationRule from "../constantes/ValidationRule";
 import FormValidation from "../utils/FormValidation";
 import People from "../service/People";
@@ -129,7 +127,7 @@ export default class AnimalNew extends FormValidation {
 
     render() {
         return (
-            <Container title="Animais" subTitle="Novo animal" >
+            <Container title="Animais" subTitle={ this.isEditionMode() ? "Editar animal": "Novo animal"} >
                 <ToastContainer ref={ref => this.container = ref} className="toast-top-right" />
                 <Col lg={12}>
                     <Button disabled={!this.isFormValid()} type="primary"

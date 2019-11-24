@@ -7,6 +7,8 @@ import FarmList from './screens/FarmList';
 import FarmNew from './screens/FarmNew';
 import AnimalList from './screens/AnimalList';
 import AnimalNew from './screens/AnimalNew';
+import BatchNew from './screens/BatchNew';
+import BatchList from './screens/BatchList';
 
 
 export default () => {
@@ -15,6 +17,10 @@ export default () => {
     <Router>
       <Switch>
         <Painel>
+          <Route exact path="/lotes/novo" component={BatchNew} />
+          <Route exact path="/lotes/:id/editar" component={BatchNew} />
+          <Route exact path="/lotes" component={BatchList} />
+
           <Route exact path="/animais" component={AnimalList} />
           <Route exact path="/animais/novo" component={AnimalNew} />
           <Route exact path="/animais/:id/editar" component={AnimalNew} />

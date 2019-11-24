@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Col, SimpleTable, Box, Button } from "adminlte-2-react";
 import { ToastContainer } from "react-toastr";
 import Container from "./../components/template/Container";
-import "./../toastr.min.css";
-import "./../animate.min.css";
 import People from "../service/People";
 import NotFound from "../components/NotFound";
 import CONSTANTES from "../constantes/App";
@@ -66,7 +64,7 @@ export default class PeopleList extends Component {
                                 <tbody>
                                     {
                                         this.state.peoples.map(people => (
-                                            <tr>
+                                            <tr key={people.id}>
                                                 <td>{people.id}</td>
                                                 <td>{people.name}</td>
                                                 <td>{people.email}</td>

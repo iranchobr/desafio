@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Form from "./Form";
 import Validator from "../service/Validator";
 import ValidationRule from "../constantes/ValidationRule";
 
-export default class FormValidation extends Component {
+export default class FormValidation extends Form {
 
     constructor(props, ruleValidation, valuesStateIgnore = []) {
         super(props);

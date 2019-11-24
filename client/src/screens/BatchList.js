@@ -2,84 +2,80 @@ import React, { Component } from "react";
 import { Col, SimpleTable, Box, Button } from "adminlte-2-react";
 import { ToastContainer } from "react-toastr";
 import Container from "./../components/template/Container";
-import Animal from "../service/Animal";
+import Batch from "../service/Batch";
 import NotFound from "../components/NotFound";
 import CONSTANTES from "../constantes/App";
 
-export default class AnimalList extends Component {
+export default class BatchList extends Component {
 
     constructor(props) {
         super(props);
         let container;
         this.state = {
-            animals: []
+            batchs: []
         };
-        this.animalService = new Animal();
+        this.batchService = new Batch();
         this.removeItem = this.removeItem.bind(this);
     }
 
-    async findAnimais() {
-        const animals = await this.animalService.findAll();
-        this.setState({ animals });
+    async findBaths() {
+        const batchs = await this.batchService.findAll();
+        this.setState({ batchs });
     }
 
     async removeItem(id) {
         try {
-            await this.animalService.remove(id);
-            await this.findAnimais();
+            await this.batchService.remove(id);
+            await this.findBaths();
             this.container.error(CONSTANTES.MESSAGE.DELETE, null, CONSTANTES.OPTIONS_TOASTR);
         } catch (error) {
             this.container.error(error.response.data.message, null, CONSTANTES.OPTIONS_TOASTR);
         }
     }
 
-    isExistAnimals() {
-        return this.state.animals.length > 0;
+    isExistBatchs() {
+        return this.state.batchs.length > 0;
     }
 
     async componentDidMount() {
-        await this.findAnimais();
+        await this.findBaths();
     }
 
     render() {
         return (
-            <Container title="Animal" subTitle="Lista de animais" >
+            <Container title="Lotes" subTitle="Lista de lotes" >
                 <ToastContainer ref={ref => this.container = ref} className="toast-top-right" />
                 <Col lg={12}>
-                    <Button type="primary" text="Nova animal" to="/animais/novo" />
+                    <Button type="primary" text="Novo lote" to="/lotes/novo" />
                 </Col>
                 <br />
                 <br />
                 <Col lg={12}>
                     <Box border title="" noPadding>
-                        {!this.isExistAnimals() && <NotFound />}
-                        {this.isExistAnimals() &&
+                        {!this.isExistBatchs() && <NotFound />}
+                        {this.isExistBatchs() &&
                             <table className="table table-bordered text-center" >
                                 <thead>
                                     <tr>
                                         <th>Codigo</th>
                                         <th>Nome</th>
-                                        <th>Especie</th>
-                                        <th>Peso</th>
-                                        <th>Sexo</th>
+                                        <th>Descrição</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.animals.map(animal => (
-                                            <tr key={animal.id}>
-                                                <td>{animal.id}</td>
-                                                <td>{animal.name}</td>
-                                                <td>{animal.species}</td>
-                                                <td>{animal.weight}</td>
-                                                <td>{animal.sex}</td>
+                                        this.state.batchs.map(batch => (
+                                            <tr>
+                                                <td>{batch.id}</td>
+                                                <td>{batch.name}</td>
+                                                <td>{batch.description}</td>
                                                 <td>
                                                     <Button type="warning" icon="fa-pen"
-                                                        to={`/animais/${animal.id}/editar`} />
+                                                        to={`/lotes/${batch.id}/editar`} />
                                                     &nbsp;
-                                              <Button type="danger" icon="fa-trash"
-                                                        onClick={() => this.removeItem(animal.id)}
+                                                    <Button type="danger" icon="fa-trash"
+                                                        onClick={() => this.removeItem(batch.id)}
                                                     />
                                                 </td>
                                             </tr>
