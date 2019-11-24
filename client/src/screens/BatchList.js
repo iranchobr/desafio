@@ -66,7 +66,7 @@ export default class BatchList extends Component {
                                 <tbody>
                                     {
                                         this.state.batchs.map(batch => (
-                                            <tr>
+                                            <tr key={batch.id}>
                                                 <td>{batch.id}</td>
                                                 <td>{batch.name}</td>
                                                 <td>{batch.description}</td>
