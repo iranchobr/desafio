@@ -35,6 +35,11 @@ class FarmService {
         if (!register) {
             throw new NotFoundException(MessageException.NOT_FOUND, "farm", 404);
         }
+
+        const farmHaveAnimal = await this._repository.findAnimalByFarmId(id);
+        if (farmHaveAnimal) {
+            throw new LogicNegociationException(MessageException.FARM_ASSOCIATE_ANIMAL, null, 409);
+        }
         return this._repository.remove(id);
     }
 

@@ -8,6 +8,10 @@ class FarmRepository extends Repository {
         super(db.Farms);
     }
 
+    findAnimalByFarmId(farmId) {
+        return db.Animals.findOne({ where: { farm_id: farmId }});
+    }
+
     async findByName(name) {
         const register = await this.getModel().findAll({
             where: {

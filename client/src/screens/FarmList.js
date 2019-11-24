@@ -24,9 +24,13 @@ export default class FarmList extends Component {
     }
 
     async removeItem(id) {
-        await this._farmService.remove(id);
-        await this.findFarms();
-        this.container.error(CONSTANTES.MESSAGE.DELETE, null, CONSTANTES.OPTIONS_TOASTR);
+        try {
+            await this._farmService.remove(id);
+            await this.findFarms();
+            this.container.error(CONSTANTES.MESSAGE.DELETE, null, CONSTANTES.OPTIONS_TOASTR);
+        } catch (error) {
+            this.container.error(error.response.data.message, null, CONSTANTES.OPTIONS_TOASTR);
+        }
     }
 
     isExistFarms() {
@@ -48,8 +52,8 @@ export default class FarmList extends Component {
                 <br />
                 <Col lg={12}>
                     <Box border title="" noPadding>
-                        { !this.isExistFarms() && <NotFound /> }
-                        { this.isExistFarms() &&
+                        {!this.isExistFarms() && <NotFound />}
+                        {this.isExistFarms() &&
                             <table className="table table-bordered text-center" >
                                 <thead>
                                     <tr>
@@ -66,7 +70,7 @@ export default class FarmList extends Component {
                                                 <td>{farm.name}</td>
                                                 <td>
                                                     <Button type="warning" icon="fa-pen"
-                                                     to={`/fazendas/${farm.id}/editar`} />
+                                                        to={`/fazendas/${farm.id}/editar`} />
                                                     &nbsp;
                                               <Button type="danger" icon="fa-trash"
                                                         onClick={() => this.removeItem(farm.id)}

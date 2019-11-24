@@ -8,6 +8,10 @@ class PeopleRepository extends Repository {
         super(db.Peoples);
     }
 
+    findAnimalByPeopleId(peopleId) {
+        return db.Animals.findOne({ where: { people_id: peopleId }});
+    }
+
     async findByEmail(email) {
         const register = await this.getModel().findAll({
             where: {

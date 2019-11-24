@@ -24,9 +24,13 @@ export default class PeopleList extends Component {
     }
 
     async removeItem(id) {
-        await this._peopleService.remove(id);
-        await this.findPeoples();
-        this.container.error(CONSTANTES.MESSAGE.DELETE, null, CONSTANTES.OPTIONS_TOASTR);
+        try {
+            await this._peopleService.remove(id);
+            await this.findPeoples();
+            this.container.error(CONSTANTES.MESSAGE.DELETE, null, CONSTANTES.OPTIONS_TOASTR);
+        } catch (error) {
+            this.container.error(error.response.data.message, null, CONSTANTES.OPTIONS_TOASTR);
+        }
     }
 
     isExistPeoples() {
@@ -48,8 +52,8 @@ export default class PeopleList extends Component {
                 <br />
                 <Col lg={12}>
                     <Box border title="" noPadding>
-                        { !this.isExistPeoples() && <NotFound /> }
-                        { this.isExistPeoples() &&
+                        {!this.isExistPeoples() && <NotFound />}
+                        {this.isExistPeoples() &&
                             <table className="table table-bordered text-center" >
                                 <thead>
                                     <tr>
@@ -72,7 +76,7 @@ export default class PeopleList extends Component {
                                                 <td>{people.sex}</td>
                                                 <td>
                                                     <Button type="warning" icon="fa-pen"
-                                                     to={`/pessoas/${people.id}/editar`} />
+                                                        to={`/pessoas/${people.id}/editar`} />
                                                     &nbsp;
                                               <Button type="danger" icon="fa-trash"
                                                         onClick={() => this.removeItem(people.id)}

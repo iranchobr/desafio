@@ -36,6 +36,12 @@ class PeopleService {
         if (!register) {
             throw new NotFoundException(MessageException.NOT_FOUND, "people", 404);
         }
+
+        const peopleHaveAnimal = await this._repository.findAnimalByPeopleId(id);
+        if (peopleHaveAnimal) {
+            throw new LogicNegociationException(MessageException.PEOPLE_ASSOCIATE_ANIMAL, null, 409);
+        }
+
         return this._repository.remove(id);
     }
 
