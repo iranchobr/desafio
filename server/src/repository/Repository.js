@@ -8,8 +8,12 @@ class Repository {
         return this._model;
     }
 
-    findAll() {
-        return this._model.findAll({});
+    findAll(fieldsReturn = []) {
+        const isExistFieldsReturn = fieldsReturn.length > 0;
+        if (isExistFieldsReturn) {
+            return this._model.findAll({ attributes: [ "id", ...fieldsReturn ]})
+        }
+        return this._model.findAll({ });
     }
 
     async findById(id) {

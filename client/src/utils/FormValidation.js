@@ -4,9 +4,10 @@ import ValidationRule from "../constantes/ValidationRule";
 
 export default class FormValidation extends Component {
 
-    constructor(props, ruleValidation) {
+    constructor(props, ruleValidation, valuesStateIgnore = []) {
         super(props);
         this._validator = new Validator(ruleValidation);
+        this._valuesStateIgnore = valuesStateIgnore;
         this.isFormValid = this.isFormValid.bind(this);
         this.validateFields = this.validateFields.bind(this);
         this.isExistErroMessage = this.isExistErroMessage.bind(this);
@@ -18,8 +19,9 @@ export default class FormValidation extends Component {
     }
 
     validateFields() {
-        const fields = this.state;
+        const fields = {...this.state};
         delete fields.errors;
+        this._valuesStateIgnore.forEach(key => delete fields[key]);
         const errors = this._validator.isValid(fields);
         this.setState({ errors });
     }

@@ -20,6 +20,6 @@ export default class Validator {
     }
 
     _isInvalid(rule, validationRule, datas) {
-        return validator[rule.validation](datas[validationRule.field], rule.options) != rule.valueExpected;
+        return validator[rule.validation]((datas[validationRule.field] || "").toString(), rule.options) != rule.valueExpected;
     }
 }

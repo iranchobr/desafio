@@ -9,8 +9,8 @@ class PeopleService {
         this._repository = new PeopleRepository();
     }
 
-    findAll() {
-        return this._repository.findAll();
+    findAll(fieldsReturn) {
+        return this._repository.findAll(fieldsReturn);
     }
 
     async findById(id) {

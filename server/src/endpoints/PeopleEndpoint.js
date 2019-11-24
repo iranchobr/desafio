@@ -13,7 +13,7 @@ class PeopleEndpoint {
 
     async findAll(request, response, next) {
         try {
-            const peoples = await this._service.findAll();
+            const peoples = await this._service.findAll(request.fieldsReturn);
             return response.json(peoples);
         } catch(error) {
             next(error);

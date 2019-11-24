@@ -4,6 +4,7 @@ const NotFoundException = require("../exceptions/NotFoundException");
 const MessageException = require("../exceptions/MessageException");
 const PeopleService = require("../service/PeopleService");
 const FarmService = require("../service/FarmService");
+const BatchAnimalRepository = require("../repository/BatchAnimalRepository");
 
 class AnimalService {
 
@@ -11,6 +12,7 @@ class AnimalService {
         this._peopleService = new PeopleService();
         this._farmService = new FarmService();
         this._repository = new AnimalRepository();
+        this._batchAnimalRepository = new BatchAnimalRepository();
     }
 
     findAll() {
@@ -37,6 +39,14 @@ class AnimalService {
         if (!register) {
             throw new NotFoundException(MessageException.NOT_FOUND, "animal", 404);
         }
+
+        const batchAnimal = await this._batchAnimalRepository.findByAnimalId(id);
+        const animalUsedBatch = batchAnimal[0];
+        if (animalUsedBatch) {
+            throw new LogicNegociationException(MessageException.ANIMAL_ASSOCIATE_BATCH, null, 409);
+        }
+
+
         return this._repository.remove(id);
     }
 

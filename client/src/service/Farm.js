@@ -1,15 +1,14 @@
 import axios from "axios";
 import CONSTANTES from "../constantes/App";
 
-export default class People {
+export default class Farm {
 
     constructor() {
-        this._endpoint = "peoples";
+        this._endpoint = "farms";
     }
 
-    findAll(fieldsReturn = []) {
-        fieldsReturn = fieldsReturn.join(",");
-        return axios.get(`${CONSTANTES.BASE_URL_API}/${this._endpoint}?fields=${fieldsReturn}`)
+    findAll() {
+        return axios.get(`${CONSTANTES.BASE_URL_API}/${this._endpoint}`)
                     .then(response => response.data);
     }
 
