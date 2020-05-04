@@ -1,0 +1,7 @@
+//mapemento dos diretorios 
+const {resolve} = require('path');
+module.exports={
+  config: resolve(__dirname,'src','config','config.js'),
+    'models-path' : resolve(__dirname, 'src','app', 'models'),
+    'migrations-path': resolve(__dirname, 'src','database', 'migrations'),
+};
