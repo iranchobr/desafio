@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "a08a8224-1d9e-4278-b650-2bacd56a3c07",
+		"name": "CHALLENGE IRANCHO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Farm",
+			"description": "",
+			"item": [
+				{
+					"name": "Update farm",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Farm 1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/farms/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"farms",
+								"3"
+							]
+						},
+						"description": "Update datas farm"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete farm",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/farms/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"farms",
+								"2"
+							]
+						},
+						"description": "Delete farm by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Return one Farm",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/farms/1000",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"farms",
+								"1000"
+							]
+						},
+						"description": "Return farm by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Return fams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/farms",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"farms"
+							]
+						},
+						"description": "Return all farms"
+					},
+					"response": []
+				},
+				{
+					"name": "Create farm",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Farm 1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/farms",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"farms"
+							]
+						},
+						"description": "Create new farm"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "People",
+			"description": null,
+			"item": [
+				{
+					"name": "Return peoples",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/peoples",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"peoples"
+							]
+						},
+						"description": "Return all peoples"
+					},
+					"response": []
+				},
+				{
+					"name": "Return people",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/peoples/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"peoples",
+								"2"
+							]
+						},
+						"description": "Return people by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create people",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tiago rosa da costa\",\n\t\"email\": \"tiago22@gmail.com\",\n\t\"address\": \"Street test\",\n\t\"sex\": \"M\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/peoples",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"peoples"
+							]
+						},
+						"description": "Create new people"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete people",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/peoples/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"peoples",
+								"2"
+							]
+						},
+						"description": "Delete people by id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update people",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Juliana teste\",\n\t\"email\": \"julianatest@gmail.com\",\n\t\"sex\": \"F\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/peoples/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"peoples",
+								"4"
+							]
+						},
+						"description": "Update datas people"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Animal",
+			"description": "",
+			"item": [
+				{
+					"name": "Return animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/animals",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"animals"
+							]
+						},
+						"description": "Return all animals"
+					},
+					"response": []
+				},
+				{
+					"name": "Return animal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/animals/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"animals",
+								"1"
+							]
+						},
+						"description": "Return animal by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create animal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n        \"people_id\": 1,\n        \"farm_id\": 1,\n        \"name\": \"Galinha\",\n        \"species\": \"Ave\",\n        \"sex\": \"F\",\n        \"weight\": 10,\n        \"date_birth\": \"2019-10-10\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/animals",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"animals"
+							]
+						},
+						"description": "Create new animal"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/animals/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"animals",
+								"1"
+							]
+						},
+						"description": "Delete animal by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update one animal",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"people_id\": \"1\",\n\t\"farm_id\": \"1\",\n\t\"name\": \"Cow\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/animals/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"animals",
+								"2"
+							]
+						},
+						"description": "Update datas one animal"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Batch",
+			"description": null,
+			"item": [
+				{
+					"name": "Return batchs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/batchs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"batchs"
+							]
+						},
+						"description": "Return all batchs"
+					},
+					"response": []
+				},
+				{
+					"name": "Create batch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"teste\",\n\t\"description\": \"testing\",\n\t\"batch_animal\": [\n\t\t{\n\t\t\t\"animal_id\": \"2\",\n\t\t\t\"date_output\": \"2019-09-09\",\n\t\t\t\"date_input\": \"2019-09-09\",\n\t\t\t\"date_last_movimentation\": \"2019-09-09\"\n\t\t},\n\t\t{\n\t\t\t\"animal_id\": \"3\",\n\t\t\t\"date_output\": \"2019-09-09\",\n\t\t\t\"date_input\": \"2019-09-09\",\n\t\t\t\"date_last_movimentation\": \"2019-09-09\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/batchs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"batchs"
+							]
+						},
+						"description": "Create new batch"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete batch",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/batchs/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"batchs",
+								"3"
+							]
+						},
+						"description": "Delete batch by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update batch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Batch number 1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/batchs/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"batchs",
+								"5"
+							]
+						},
+						"description": "Update data batch by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Return batch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/batchs/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"batchs",
+								"3"
+							]
+						},
+						"description": "Return specific batch by id"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
