@@ -189,14 +189,14 @@ export default {
         ) {
           alert("Algum campo está nulo ou com valor inválido!!");
         } else {
-          Animal.criar(this.animal)
+          Animal.atualizar(this.animal.id, this.animal)
             .then(res => {
               this.animal = {};
-              alert("Animal salvo com sucesso!!");
+              alert("Animal atualizado com sucesso!!");
               this.listar();
             })
             .catch(err => {
-              alert("Erro ao cadastrar animal!! " + err);
+              alert("Erro ao atualizar animal!! " + err);
             });
         }
       }

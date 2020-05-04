@@ -164,13 +164,11 @@ export default {
     formatarDataEntrada(dt_entrada, animalLote) {
       let data;
       return (this.data = this.$moment(animalLote.dt_entrada)
-        .add(1, "days")
         .format("DD/MM/YYYY"));
     },
     formatarDataSaida(dt_saida, animalLote) {
       let data;
       return (this.data = this.$moment(animalLote.dt_saida)
-        .add(1, "days")
         .format("DD/MM/YYYY"));
     },
     formatarDataNascimento(dt_ultima_movimentacao, animalLote) {
@@ -182,12 +180,12 @@ export default {
     addAnimalLote() {
       if (!this.animalLote.id) {
         if (
-          this.animalLote.fk_id_animal == "" ||
-          this.animalLote.fk_id_lote == " " ||
-          this.animalLote.dt_entrada == "" ||
-          this.animalLote.dt_saida == " " ||
-          this.animalLote.dt_ultima_movimentacao == " " ||
-          this.animalLote.ic_bezerro == " "
+          this.animalLote.fk_id_animal === "" ||
+          this.animalLote.fk_id_lote === " " ||
+          this.animalLote.dt_entrada === "" ||
+          this.animalLote.dt_saida === " " ||
+          this.animalLote.dt_ultima_movimentacao === " " ||
+          this.animalLote.ic_bezerro === " "
         ) {
           alert("Algum campo está nulo ou com valor inválido!!");
         } else {
@@ -203,12 +201,12 @@ export default {
         }
       } else {
         if (
-          this.animalLote.fk_id_animal == "" ||
-          this.animalLote.fk_id_lote == " " ||
-          this.animalLote.dt_entrada == "" ||
-          this.animalLote.dt_saida == " " ||
-          this.animalLote.dt_ultima_movimentacao == " " ||
-          this.animalLote.ic_bezerro == " "
+          this.animalLote.fk_id_animal === "" ||
+          this.animalLote.fk_id_lote === " " ||
+          this.animalLote.dt_entrada === "" ||
+          this.animalLote.dt_saida === " " ||
+          this.animalLote.dt_ultima_movimentacao === " " ||
+          this.animalLote.ic_bezerro === " "
         ) {
           alert("Algum campo está nulo ou com valor inválido!!");
         } else {

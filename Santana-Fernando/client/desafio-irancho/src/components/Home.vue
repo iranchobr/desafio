@@ -14,7 +14,7 @@
       <b-button
         variant="outline-primary"
         @click="CadastrarPessoa()"
-        style="width: 500px;"
+        style="width: 800px;"
         id="pessoa"
       >
         <b-icon icon="person-plus" style="width: 200px; height: 200px;"></b-icon>
@@ -24,14 +24,17 @@
       <b-button
         variant="outline-success"
         @click="CadastrarAnimal()"
-        style="width: 500px;"
+        style="width: 800px;"
         id="animal"
       >
         <b-icon icon="plus" style="width: 200px; height: 200px;"></b-icon>
         <h1>Cadastrar Animal</h1>
       </b-button>
       <!--Botão de cadastrar pessoas-->
-      <b-button variant="outline-warning" @click="CadastrarLote()" style="width: 500px;" id="Lote">
+      <b-button variant="outline-warning" 
+      @click="CadastrarLote()" 
+      style="width: 800px;" 
+      id="Lote">
         <b-icon icon="list-check" style="width: 200px; height: 200px;"></b-icon>
         <h1>Cadastrar Lote</h1>
       </b-button>
@@ -39,7 +42,7 @@
       <b-button
         variant="outline-secondary"
         @click="CadastrarAnimalLote()"
-        style="width: 500px;"
+        style="width: 800px;"
         id="Lote"
       >
         <b-icon icon="list-check" style="width: 200px; height: 200px;"></b-icon>
@@ -84,7 +87,7 @@ export default {
 
 <style lang="scss">
 #corpo {
-  margin: 105px;
+  margin: 150px;
   width: auto;
 }
 </style>
