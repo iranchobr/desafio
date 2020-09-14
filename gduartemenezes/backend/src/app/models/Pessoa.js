@@ -4,6 +4,7 @@ class User extends Model {
   static init(sequelize) {
     super.init(
       {
+        id: Sequelize.UUID,
         no_pessoa: Sequelize.STRING,
         no_email: Sequelize.STRING,
         endereco: Sequelize.STRING,
@@ -19,4 +20,4 @@ class User extends Model {
   }
 }
 
-export default User;
+export default Pessoa;
