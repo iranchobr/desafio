@@ -68,6 +68,118 @@ class PessoaController {
       });
     }
   }
+  async atualizar(req, res) {
+    //validação de dados
+    const schema = Yup.object().shape({
+      no_pessoa: Yup.string(),
+      no_email: Yup.string().email('Tipo do campo é email'),
+      endereco: Yup.string(),
+      sexo: Yup.string().max(1, 'Este campo recebe apenas um caractere'),
+    });
+
+    const pessoaAtualizar = await Pessoa.findByPk(req.params.id);
+
+    if (!pessoaAtualizar) {
+      return res.status(400).json({
+        status: 'falha',
+        message: 'Pessoa não encontrada no banco de dados',
+      });
+    }
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        status: 'Bad Request',
+        message: 'Falha na validação de dados, tente novamente',
+      });
+    }
+
+    const emailRegistrado = await Pessoa.findOne({
+      where: {
+        no_email: req.body.no_email,
+      },
+    });
+    // retorna se o email já está registrado
+    if (emailRegistrado) {
+      return res.status(400).json({
+        status: 'Bad Request',
+        message:
+          'Email já registrado, use outro para proseguir com a atualização',
+      });
+    }
+
+    try {
+      const { no_pessoa, no_email } = await pessoaAtualizar.update(req.body);
+      return res.status(200).json({
+        status: 'sucesso',
+        no_pessoa,
+        no_email,
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 'falha',
+        message: err,
+      });
+    }
+  }
+
+  async listarTodos(req, res) {
+    try {
+      const listaPessoas = await Pessoa.findAll();
+      return res.status(200).json({
+        status: 'sucesso',
+        listaPessoas,
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 'falha',
+        message: err,
+      });
+    }
+  }
+
+  async detalhePessoa(req, res) {
+    try {
+      const pessoa = Pessoa.findByPk(req.params.id);
+      if (!pessoa) {
+        return res.status(400).json({
+          status: 'falha',
+          message: 'pessoa não encontrada',
+        });
+      }
+      return res.status(200).json({
+        status: 'sucesso',
+        pessoa,
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 'falha',
+        message: err,
+      });
+    }
+  }
+
+  async deletar(req, res) {
+    const pessoaDeletar = await Pessoa.findByPk(req.params.id);
+
+    if (!pessoaDeletar) {
+      return res.status(400).json({
+        status: 'falha',
+        message: 'Pessoa não encontrada',
+      });
+    }
+    try {
+      await Pessoa.detroy(pessoaDeletar);
+      return res.status(200).json({
+        status: 'sucesso',
+        message: 'Deleção efetuada',
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 'falha',
+        message: err,
+      });
+    }
+  }
 }
 
 export default new PessoaController();
