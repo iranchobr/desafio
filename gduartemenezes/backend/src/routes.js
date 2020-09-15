@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import PessoaController from './app/controllers/PessoaController';
 import AnimalController from './app/controllers/AnimalController';
+import LoteController from './app/controllers/LoteController';
 
 const routes = new Router();
 
@@ -18,5 +19,12 @@ routes.get('/animais', AnimalController.listarTodos);
 routes.put('/animais/:id', AnimalController.atualizar);
 routes.get('/animais/:id', AnimalController.detalheAnimal);
 routes.delete('/animais/:id', AnimalController.deletar);
+
+// rotas /lotes
+routes.post('/lotes', LoteController.criar);
+routes.get('/lotes', LoteController.listarTodos);
+routes.put('/lotes/:id', LoteController.atualizar);
+routes.get('/lotes/:id', LoteController.detalheLote);
+routes.delete('/lotes/:id', LoteController.deletar);
 
 export default routes;
