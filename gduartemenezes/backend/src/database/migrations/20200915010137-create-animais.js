@@ -33,6 +33,8 @@ module.exports = {
           key: 'id',
           model: 'pessoas',
         },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       id_fazenda: {
         type: Sequelize.UUID,
