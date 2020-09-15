@@ -3,8 +3,9 @@ import databaseConfig from '../config/database';
 
 import Pessoa from '../app/models/Pessoa';
 import Animal from '../app/models/Animal';
+import Lote from '../app/models/Lote';
 
-const models = [Pessoa, Animal];
+const models = [Pessoa, Animal, Lote];
 
 class Database {
   constructor() {
