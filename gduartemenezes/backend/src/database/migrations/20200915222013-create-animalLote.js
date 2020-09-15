@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('animals', {
+    return queryInterface.createTable('animalLote', {
       id: {
         type: Sequelize.UUID,
         allowNull: false,
@@ -55,6 +55,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('animals');
+    return queryInterface.dropTable('animalLote');
   },
 };
