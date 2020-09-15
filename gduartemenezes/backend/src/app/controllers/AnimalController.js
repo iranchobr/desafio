@@ -100,11 +100,10 @@ class AnimalController {
     }
 
     try {
-      const { no_animal, no_raca } = await animalAtualizar.update(req.body);
+      const animalAtualizado = await animalAtualizar.update(req.body);
       return res.status(200).json({
         status: 'sucesso',
-        no_animal,
-        no_raca,
+        animalAtualizado,
       });
     } catch (err) {
       return res.status(400).json({

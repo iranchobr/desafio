@@ -114,10 +114,10 @@ class PessoaController {
     }
 
     try {
-      const { no_pessoa, no_email } = await pessoaAtualizar.update(req.body);
+      const pessoaAtualizada = await pessoaAtualizar.update(req.body);
       return res.status(200).json({
         status: 'sucesso',
-        no_pessoa,
+        pessoaAtualizada,
       });
     } catch (err) {
       return res.status(400).json({
