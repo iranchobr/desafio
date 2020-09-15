@@ -16,7 +16,7 @@ routes.delete('/pessoas/:id', PessoaController.deletar);
 routes.post('/animais', AnimalController.criar);
 routes.get('/animais', AnimalController.listarTodos);
 routes.put('/animais/:id', AnimalController.atualizar);
-routes.get('/animais/:id', AnimalController.detalhePessoa);
+routes.get('/animais/:id', AnimalController.detalheAnimal);
 routes.delete('/animais/:id', AnimalController.deletar);
 
 export default routes;
