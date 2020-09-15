@@ -35,6 +35,7 @@ class AnimalController {
       vr_peso,
       sexo,
       dt_nascimento,
+      id_fazenda,
       fk_id_pessoa,
     } = req.body;
 
@@ -47,6 +48,7 @@ class AnimalController {
       vr_peso,
       sexo,
       dt_nascimento,
+      id_fazenda,
       fk_id_pessoa,
     };
 
