@@ -1,10 +1,13 @@
 import { Model, Sequelize } from 'sequelize';
 
-class User extends Model {
+class Pessoa extends Model {
   static init(sequelize) {
     super.init(
       {
-        id: Sequelize.UUID,
+        id: {
+          type: Sequelize.UUID,
+          primaryKey: true,
+        },
         no_pessoa: Sequelize.STRING,
         no_email: Sequelize.STRING,
         endereco: Sequelize.STRING,
