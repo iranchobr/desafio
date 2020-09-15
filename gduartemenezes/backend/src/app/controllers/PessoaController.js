@@ -15,6 +15,7 @@ class PessoaController {
       sexo: Yup.string()
         .required('Campo sexo é obrigatório')
         .max(1, 'Este campo recebe apenas um caractere'),
+      ativo: Yup.bool(),
     });
 
     //retorna se os dados são invalidos
@@ -75,6 +76,7 @@ class PessoaController {
       no_email: Yup.string().email('Tipo do campo é email'),
       endereco: Yup.string(),
       sexo: Yup.string().max(1, 'Este campo recebe apenas um caractere'),
+      ativo: Yup.bool(),
     });
 
     const pessoaAtualizar = await Pessoa.findByPk(req.params.id);
@@ -93,11 +95,15 @@ class PessoaController {
       });
     }
 
-    const emailRegistrado = await Pessoa.findOne({
-      where: {
-        no_email: req.body.no_email,
-      },
-    });
+    const emailRegistrado =
+      pessoaAtualizar.no_email !== req.body.no_email
+        ? await Pessoa.findOne({
+            where: {
+              no_email: req.body.no_email,
+            },
+          })
+        : null;
+
     // retorna se o email já está registrado
     if (emailRegistrado) {
       return res.status(400).json({
@@ -112,7 +118,6 @@ class PessoaController {
       return res.status(200).json({
         status: 'sucesso',
         no_pessoa,
-        no_email,
       });
     } catch (err) {
       return res.status(400).json({
@@ -139,7 +144,7 @@ class PessoaController {
 
   async detalhePessoa(req, res) {
     try {
-      const pessoa = Pessoa.findByPk(req.params.id);
+      const pessoa = await Pessoa.findByPk(req.params.id);
       if (!pessoa) {
         return res.status(400).json({
           status: 'falha',
@@ -168,7 +173,7 @@ class PessoaController {
       });
     }
     try {
-      await Pessoa.detroy(pessoaDeletar);
+      await pessoaDeletar.destroy();
       return res.status(200).json({
         status: 'sucesso',
         message: 'Deleção efetuada',
