@@ -37,6 +37,7 @@ class AnimalLoteController {
     const id = uuid();
     // cria objeto a ser armazenado
     const novoRegistro = {
+      id,
       dt_entrada,
       dt_saida,
       dt_ultima_movimentacao,
@@ -74,10 +75,8 @@ class AnimalLoteController {
         'Campo dt_ultima_movimentacao é obrigatório'
       ),
       ic_bezerro: Yup.bool(),
-      fk_id_animal: Yup.string()
-        .uuid()
-        .required('Campo id_animal é obrigatório'),
-      fk_id_lote: Yup.string().uuid().required('Campo id_lote é obrigatório'),
+      fk_id_animal: Yup.string().uuid(),
+      fk_id_lote: Yup.string().uuid(),
     });
 
     //retorna se os dados são invalidos
@@ -87,7 +86,7 @@ class AnimalLoteController {
         message: 'Falha na validação de dados, tente novamente',
       });
     }
-    const registroAtualizar = await AnimalLote.findByPk(req.params.idRegistro);
+    const registroAtualizar = await AnimalLote.findByPk(req.params.id);
 
     if (!registroAtualizar) {
       return res.status(400).json({
