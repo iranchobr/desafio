@@ -2,9 +2,11 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/detail">Detail</router-link> |
-      <router-link to="/edit">Edit</router-link>
+      <router-link to="/lists">Listas</router-link> |
+      <router-link to="/create">Criar</router-link> |
+      <router-link to="/detail">Detalhes</router-link> |
+      <router-link to="/edit">Editar</router-link> |
+      <router-link to="/about">About</router-link>
     </div>
     <router-view />
   </div>
@@ -17,6 +19,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #ddd;
 }
 
 #nav {
