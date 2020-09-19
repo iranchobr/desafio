@@ -17,15 +17,21 @@
           <td>
             <button
               @click="findPessoa(pessoa.id)"
+              class="btn btn-sm btn-dark mr-10"
+            >
+              <b-icon icon="search"></b-icon>
+            </button>
+            <button
+              @click="findPessoa(pessoa.id)"
               class="btn btn-sm btn-warning mr-10"
             >
-              Editar
+              <b-icon icon="pencil-square"></b-icon>
             </button>
             <button
               @click="deletePessoa(pessoa.id)"
               class=" btn btn-sm btn-danger"
             >
-              Remove
+              <b-icon icon="trash"></b-icon>
             </button>
           </td>
         </tr>
