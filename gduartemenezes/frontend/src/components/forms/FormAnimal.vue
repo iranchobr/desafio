@@ -60,7 +60,7 @@
         ></b-form-input>
       </div>
 
-      <button class="btn btn-primary btn-block m-t-10" type="submit">
+      <button class=" col-6 btn btn-primary btn-block m-t-10" type="submit">
         Salvar
       </button>
     </form>
@@ -101,14 +101,14 @@ export default {
 .form-group {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  float: left;
   align-items: center;
 }
 
 form {
   display: inherit;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   margin: 10px 0;
 }
 

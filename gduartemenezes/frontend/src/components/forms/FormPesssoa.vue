@@ -24,7 +24,7 @@
       <div class="form-group">
         <label for="input-endereco">Endereço:</label>
         <input
-          class="form-control"
+          class="form-input"
           type="text"
           id="no_endereco"
           v-model="formPessoa.endereco"
@@ -40,13 +40,13 @@
           ></b-form-select>
         </div>
         <div class="checkbox">
-          <label for="input-ativo">Ativo:</label>
           <input
             type="checkbox"
             name="ativo"
             id="ativo"
             v-model="formPessoa.ativo"
           />
+          <label for="input-ativo">Ativo</label>
         </div>
       </div>
       <button class="btn btn-primary btn-block m-t-10" type="submit">

@@ -79,6 +79,6 @@ button {
 .grupo {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 </style>
