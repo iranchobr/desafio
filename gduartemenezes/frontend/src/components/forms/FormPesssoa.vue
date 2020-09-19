@@ -1,6 +1,6 @@
 <template>
-  <div class="form-pessoa">
-    <form action="">
+  <div class="FormPessoa">
+    <form @submit.prevent="addPessoa(formPessoa)">
       <div class="form-group">
         <label for="input-nome">Nome:</label>
         <input
@@ -8,7 +8,7 @@
           type="text"
           name="nome"
           id="no_pessoa"
-          v:model="form.no_pessoa"
+          v-model="formPessoa.no_pessoa"
         />
       </div>
       <div class="form-group">
@@ -18,36 +18,97 @@
           type="email"
           name="email"
           id="no_email"
-          v:model="form.no_email"
+          v-model="formPessoa.no_email"
         />
       </div>
       <div class="form-group">
         <label for="input-endereco">Endereço:</label>
         <input
-          class="form-input"
+          class="form-control"
           type="text"
-          name="endereco"
           id="no_endereco"
-          v:model="form.no_endereco"
+          v-model="formPessoa.endereco"
         />
       </div>
-      <div class="form-group">
-        <label for="input-nome">Sexo:</label>
-        <b-form-select
-          v-model="formAnimal.sexo"
-          :options="sexo"
-        ></b-form-select>
+      <div class="grupo">
         <div>
+          <label class="col-md-4" for="input-nome">Sexo:</label>
+          <b-form-select
+            class="col-md-8"
+            v-model="formPessoa.sexo"
+            :options="sexo"
+          ></b-form-select>
+        </div>
+        <div class="checkbox">
           <label for="input-ativo">Ativo:</label>
-          <input type="checkbox" name="ativo" id="ativo" />
+          <input
+            type="checkbox"
+            name="ativo"
+            id="ativo"
+            v-model="formPessoa.ativo"
+          />
         </div>
       </div>
+      <button class="btn btn-primary btn-block m-t-10" type="submit">
+        Salvar
+      </button>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "FormPessoa",
+  data() {
+    return {
+      formPessoa: {
+        no_pessoa: undefined,
+        no_email: "",
+        endereco: "",
+        sexo: "",
+        ativo: undefined,
+      },
+      sexo: [{ text: "Selecione", value: "" }, "M", "F"],
+    };
+  },
+  methods: {
+    addPessoa: function(formPessoa) {
+      console.log(formPessoa);
+    },
+  },
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.FormPessoa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #999;
+}
+
+form {
+  display: inherit;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 10px 0;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+label {
+  margin: 0 10px;
+}
+
+button {
+  margin: 15px 0;
+}
+.grupo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+</style>
