@@ -38,8 +38,16 @@
           type="text"
           name="dono"
           id="fk_id_pessoa"
+          disabled="disabled"
           v-model="formAnimal.fk_id_pessoa"
         />
+        <div>
+          <b-button v-b-modal.modal-1>Selecionar da lista</b-button>
+
+          <b-modal id="modal-1" class="modal-lg" title="BootstrapVue">
+            <TablePessoas />
+          </b-modal>
+        </div>
       </div>
       <div class="form-group col-12">
         <label class="col-2 mr-10" for="input-nome">Sexo:</label>
@@ -68,8 +76,12 @@
 </template>
 
 <script>
+import TablePessoas from "../tables/TablePessoas";
 export default {
   name: "FormAnimal",
+  components: {
+    TablePessoas,
+  },
   data() {
     return {
       formAnimal: {
