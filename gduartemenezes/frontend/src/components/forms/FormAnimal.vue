@@ -33,45 +33,51 @@
       </div>
       <div class="form-group col-12">
         <label for="input-email">Dono:</label>
-        <input
-          class="form-input"
-          type="text"
-          name="dono"
-          id="fk_id_pessoa"
-          disabled="disabled"
-          v-model="formAnimal.fk_id_pessoa"
-        />
-        <div>
-          <b-button v-b-modal.modal-1>Selecionar da lista</b-button>
+        <div class="helper">
+          <input
+            class="form-input"
+            type="text"
+            name="dono"
+            id="fk_id_pessoa"
+            readOnly
+            v-model="pessoa.no_nome"
+          />
+          <small>Selecione na tabela abaixo</small>
+        </div>
 
-          <b-modal id="modal-1" class="modal-lg" title="BootstrapVue">
-            <TablePessoas />
-          </b-modal>
+        <div>
+          <button type="button" class="btn btn-outline-dark">
+            Carregar Pessoas
+          </button>
         </div>
       </div>
       <div class="form-group col-12">
-        <label class="col-2 mr-10" for="input-nome">Sexo:</label>
+        <label for="input-nome">Sexo:</label>
         <b-form-select
-          class="col-md-8 ml-10"
+          class="col-md-4"
           v-model="formAnimal.sexo"
           :options="sexo"
         ></b-form-select>
       </div>
       <div class="form-group col-12">
-        <label for="input-email">Data Nascimento:</label>
+        <label for="input-email">Data Nasc.:</label>
         <b-form-input
           id="input-5"
           v-model="formAnimal.dt_nascimento"
           type="date"
           required
+          class="date"
           placeholder=""
         ></b-form-input>
       </div>
 
-      <button class=" col-6 btn btn-primary btn-block m-t-10" type="submit">
+      <button class="btn sub btn-primary" type="submit">
         Salvar
       </button>
     </form>
+    <div>
+      <TablePessoas @pessoa-sel="getSelecionado" />
+    </div>
   </div>
 </template>
 
@@ -93,11 +99,16 @@ export default {
         fk_id_pessoa: "",
       },
       sexo: [{ text: "Selecione", value: "" }, "M", "F"],
+      pessoa: {},
     };
   },
   methods: {
     addPessoa: function(formAnimal) {
       console.log(formAnimal);
+    },
+    getSelecionado(value) {
+      this.pessoa = value;
+      console.log(this.pessoa);
     },
   },
 };
@@ -107,7 +118,6 @@ export default {
 .FormAnimal {
   display: flex;
   flex-direction: column;
-  border: 1px solid #999;
 }
 
 .form-group {
@@ -117,11 +127,36 @@ export default {
   align-items: center;
 }
 
+.btn {
+  width: 120px;
+  height: 30px;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 10px -15px 30px 10px;
+}
+
+.sub {
+  width: 240px;
+  height: 40px;
+  font-size: 16px;
+}
+.date {
+  width: 200px;
+}
+.helper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 form {
   display: inherit;
   flex-direction: column;
   align-items: flex-start;
   margin: 10px 0;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #eee;
 }
 
 input {
@@ -131,9 +166,5 @@ input {
 
 label {
   margin: 0 10px;
-}
-
-button {
-  margin: 15px 0;
 }
 </style>
