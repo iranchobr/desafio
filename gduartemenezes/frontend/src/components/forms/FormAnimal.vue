@@ -46,7 +46,11 @@
         </div>
 
         <div>
-          <button type="button" class="btn btn-outline-dark">
+          <button
+            type="button"
+            @click="showTable = !showTable"
+            class="btn btn-outline-dark"
+          >
             Carregar Pessoas
           </button>
         </div>
@@ -75,7 +79,7 @@
         Salvar
       </button>
     </form>
-    <div>
+    <div v-if="showTable == true">
       <TablePessoas @pessoa-sel="getSelecionado" />
     </div>
   </div>
@@ -100,6 +104,7 @@ export default {
       },
       sexo: [{ text: "Selecione", value: "" }, "M", "F"],
       pessoa: {},
+      showTable: false,
     };
   },
   methods: {
@@ -109,6 +114,9 @@ export default {
     getSelecionado(value) {
       this.pessoa = value;
       console.log(this.pessoa);
+    },
+    showTb() {
+      return (this.showTable = true);
     },
   },
 };
