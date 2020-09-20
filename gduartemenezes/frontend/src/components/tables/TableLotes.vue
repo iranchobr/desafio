@@ -3,6 +3,7 @@
     <table class=" table table-striped tb-rendered col-8" id="tb-lotes">
       <thead class="thead-dark">
         <tr>
+          <th scope="col">--</th>
           <th scope="col">Nome</th>
           <th scope="col">Descrição</th>
           <th scope="col" style="width: 200px;">Ações</th>
@@ -10,10 +11,23 @@
       </thead>
       <tbody>
         <tr v-for="lote in lotes" :key="lote.id">
+          <td>
+            <!-- checkbox se limita a uma seleção apenas -->
+            <!-- quando clicada emite uma função com dado pessoa a ser usado na importação do componente -->
+
+            <input
+              type="checkbox"
+              name="sel-Lote"
+              @click="$emit('lote-sel', lote)"
+              v-model="lSel"
+              :value="lote"
+              :disabled="lSel.length == 1"
+            />
+          </td>
           <td>{{ lote.no_lote }}</td>
           <td>{{ lote.ds_lote }}</td>
 
-          <td>
+          <td class="button-gp">
             <button @click="findLote(lote.id)" class=" btn btn-sm btn-dark">
               <b-icon
                 icon="search
@@ -39,6 +53,7 @@ export default {
   name: "TableLotes",
   data() {
     return {
+      lSel: [],
       lotes: [
         {
           id: "7e6e98cc-1413-4aa2-958e-d204326ca591",
@@ -105,6 +120,15 @@ export default {
 </script>
 
 <style scoped>
+.button-gp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.btn {
+  width: 40px;
+}
 .tb-rendered {
   margin: auto;
 }
