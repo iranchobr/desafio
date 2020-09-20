@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Lists from "../views/Lists.vue";
 import Create from "../views/Create.vue";
-import Edit from "../views/Edit.vue";
+import Alocar from "../views/Alocar.vue";
 import Detail from "../views/Detail.vue";
 
 Vue.use(VueRouter);
@@ -25,9 +25,9 @@ const routes = [
     component: Create,
   },
   {
-    path: "/edit",
-    name: "Edit",
-    component: Edit,
+    path: "/alocar",
+    name: "Alocar",
+    component: Alocar,
   },
   {
     path: "/detail",

@@ -1,11 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/lists">Listas</router-link> |
-      <router-link to="/create">Criar</router-link> |
-      <router-link to="/detail">Detalhes</router-link> |
-      <router-link to="/edit">Editar</router-link> |
+      <router-link to="/">Home <b-icon icon="house"></b-icon></router-link> |
+      <router-link to="/lists"
+        >Listas <b-icon icon="journal-text"></b-icon
+      ></router-link>
+      |
+      <router-link to="/create"
+        >Criar <b-icon icon="plus"></b-icon
+      ></router-link>
+      |
+      <router-link to="/detail"
+        >Detalhes <b-icon icon="search"></b-icon
+      ></router-link>
+      |
+      <router-link to="/alocar"
+        >Alocar <b-icon icon="diagram3"></b-icon
+      ></router-link>
+      |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
@@ -24,6 +36,9 @@
 
 #nav {
   padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 
   a {
     font-weight: bold;
