@@ -1,8 +1,9 @@
 <template>
-  <div class="table-pessoas">
+  <div class="table-pessoas sticky-header">
     <table class=" table table-striped tb-rendered col-8" id="tb-pessoas">
       <thead class="thead-dark">
         <tr>
+          <th scope="col">--</th>
           <th scope="col">Nome</th>
           <th scope="col">Email</th>
           <th scope="col">Ativo</th>
@@ -11,13 +12,26 @@
       </thead>
       <tbody>
         <tr v-for="pessoa in pessoas" :key="pessoa.id">
+          <td>
+            <!-- checkbox se limita a uma seleção apenas -->
+            <!-- quando clicada emite uma função com dado pessoa a ser usado na importação do componente -->
+
+            <input
+              type="checkbox"
+              name="sel-Pessoa"
+              @click="$emit('pessoa-sel', pessoa)"
+              v-model="pSel"
+              :value="pessoa"
+              :disabled="pSel.length == 1"
+            />
+          </td>
           <td>{{ pessoa.no_nome }}</td>
           <td>{{ pessoa.no_email }}</td>
           <td>{{ pessoa.ativo }}</td>
-          <td>
+          <td class="button-gp">
             <button
-              @click="findPessoa(pessoa.id)"
               class="btn btn-sm btn-dark mr-10"
+              @click="findPessoa(pessoa.id)"
             >
               <b-icon icon="search"></b-icon>
             </button>
@@ -43,8 +57,11 @@
 <script>
 export default {
   name: "TablePessoas",
+
   data() {
     return {
+      // usado para limitar seleções na checkBox
+      pSel: [],
       pessoas: [
         {
           id: "b73db850-179b-4694-bb28-25b032378aa6",
@@ -147,7 +164,6 @@ export default {
           updated_at: "2020-08-06",
         },
       ],
-
       pessoa: {},
     };
   },
@@ -158,7 +174,11 @@ export default {
     deletePessoa(id) {
       console.log(id);
     },
+    print(pessoa) {
+      console.log(pessoa);
+    },
   },
+
   created: {
     buscaPessoas() {
       console.log("buscando");
@@ -168,10 +188,24 @@ export default {
 </script>
 
 <style scoped>
+table {
+  max-height: 200px;
+}
 .tb-rendered {
   margin: auto;
+  width: 700px;
+  background: #d070462d;
 }
 
+.btn {
+  width: 40px;
+}
+.button-gp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
 button {
   margin: 0 10px;
 }
