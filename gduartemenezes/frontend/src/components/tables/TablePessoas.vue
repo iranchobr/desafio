@@ -1,5 +1,5 @@
 <template>
-  <div class="table-pessoas sticky-header">
+  <div class="table-pessoas">
     <table class=" table table-striped tb-rendered col-8" id="tb-pessoas">
       <thead class="thead-dark">
         <tr>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="pessoa in pessoas" :key="pessoa.id">
+        <tr v-for="pessoa in displayedPessoas" :key="pessoa.id">
           <td>
             <!-- checkbox se limita a uma seleção apenas -->
             <!-- quando clicada emite uma função com dado pessoa a ser usado na importação do componente -->
@@ -51,6 +51,44 @@
         </tr>
       </tbody>
     </table>
+    <div class="offset">
+      <nav class="col-12" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <button
+              type="button"
+              class="page-link"
+              v-if="page != 1"
+              @click="page--"
+            >
+              <b-icon icon="caret-left"></b-icon>
+            </button>
+          </li>
+          <li class="page-item">
+            <button
+              type="button"
+              class="page-link"
+              v-for="pageNumber in pages.slice(page - 1, page + 5)"
+              v-bind:key="pageNumber"
+              @click="page = pageNumber"
+              displayedPessoas
+            >
+              {{ pageNumber }}
+            </button>
+          </li>
+          <li class="page-item">
+            <button
+              type="button"
+              @click="page++"
+              v-if="page < pages.length"
+              class="page-link"
+            >
+              <b-icon icon="caret-right"></b-icon>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 
@@ -165,31 +203,61 @@ export default {
         },
       ],
       pessoa: {},
+      page: 1,
+      perPage: 5,
+      pages: [],
+      pessoasPag: [],
     };
   },
   methods: {
+    setPages() {
+      let numberOfPages = Math.ceil(this.pessoas.length / this.perPage);
+      for (let index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate(pessoas) {
+      let page = this.page;
+      let perPage = this.perPage;
+      let from = page * perPage - perPage;
+      let to = page * perPage;
+      return pessoas.slice(from, to);
+    },
+
     findPessoa(id) {
       console.log(id);
     },
     deletePessoa(id) {
       console.log(id);
     },
-    print(pessoa) {
-      console.log(pessoa);
+  },
+  computed: {
+    displayedPessoas() {
+      return this.paginate(this.pessoas);
     },
   },
-
-  created: {
-    buscaPessoas() {
-      console.log("buscando");
-    },
+  created() {
+    this.setPages();
   },
 };
 </script>
 
 <style scoped>
-table {
-  max-height: 200px;
+button.page-link {
+  display: inline-block;
+}
+button.page-link {
+  font-size: 12px;
+  color: #222;
+  font-weight: bold;
+  width: 40px;
+}
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .tb-rendered {
   margin: auto;
