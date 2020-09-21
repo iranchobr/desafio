@@ -20,13 +20,18 @@
         <hr />
         <li v-for="animal in animaisAlocar" v-bind:key="animal.id">
           {{ animal.no_animal }} - {{ animal.no_raca }} - {{ animal.sexo }}
+          <hr />
         </li>
       </ul>
       <ul :value="lote" class="listaSelecionados">
         <strong>Lote:</strong>
         <hr />
-        <li>{{ lote.no_lote }} - {{ lote.id }}</li>
+        <li>{{ lote.no_lote }} -- {{ lote.ds_lote }}</li>
       </ul>
+
+      <button class="btn sub btn-dark">
+        Alocar
+      </button>
     </div>
   </div>
 </template>
@@ -65,6 +70,9 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+  margin: 20px 10px;
+}
 .alocar {
   display: flex;
   flex-direction: row;
@@ -86,7 +94,11 @@ export default {
   background: #fae9ba;
   height: 200px;
   border-radius: 8px;
+  border: 1px solid #795c09;
   margin-top: 30px;
   margin-right: 50px;
+}
+.sub {
+  margin: 10px 40px 0 0;
 }
 </style>
