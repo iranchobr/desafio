@@ -1,6 +1,6 @@
 <template>
   <div class="lists">
-    <h1>Listas</h1>
+    <h3>Listas</h3>
 
     <h6>Selecione o tipo de Entidade:</h6>
     <b-form-group class="col-md-2">

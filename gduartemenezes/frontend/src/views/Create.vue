@@ -1,6 +1,6 @@
 <template>
   <div class="create">
-    <h1>Registros</h1>
+    <h3>Registros</h3>
     <h6>Selecione o tipo de Entidade a ser registrada</h6>
     <b-form-group class="col-md-2">
       <b-form-select
@@ -54,7 +54,6 @@ export default {
 
 <style scoped>
 .create {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
