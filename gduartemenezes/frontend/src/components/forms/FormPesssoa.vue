@@ -85,7 +85,7 @@ export default {
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   background: #f9e4aa;
   margin: 50px;
 }

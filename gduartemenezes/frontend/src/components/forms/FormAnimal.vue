@@ -130,6 +130,7 @@ export default {
   border-radius: 8px;
   border: 2px solid #ddd;
   background: #f9e4aa;
+  min-width: 700px;
   margin: 50px;
 }
 
@@ -170,7 +171,6 @@ form {
   margin: 10px 0;
   padding: 5px;
   border-radius: 8px;
-  border: 1px solid #eee;
 }
 
 input {
