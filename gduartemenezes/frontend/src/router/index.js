@@ -4,7 +4,6 @@ import Home from "../views/Home.vue";
 import Lists from "../views/Lists.vue";
 import Create from "../views/Create.vue";
 import Alocar from "../views/Alocar.vue";
-import Detail from "../views/Detail.vue";
 
 Vue.use(VueRouter);
 
@@ -29,11 +28,7 @@ const routes = [
     name: "Alocar",
     component: Alocar,
   },
-  {
-    path: "/detail",
-    name: "Detail",
-    component: Detail,
-  },
+
   {
     path: "/about",
     name: "About",

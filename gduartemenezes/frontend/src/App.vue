@@ -12,10 +12,6 @@
         >Criar <b-icon icon="plus"></b-icon
       ></router-link>
       |
-      <router-link to="/detail"
-        >Detalhes <b-icon icon="search"></b-icon
-      ></router-link>
-      |
       <router-link to="/alocar"
         >Alocar <b-icon icon="diagram3"></b-icon
       ></router-link>
@@ -59,11 +55,12 @@ img {
 }
 
 .form-input {
-  background: #f9e4aa;
+  background: #fcf3da;
   width: 350px;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 14px;
+  padding: 5px 10px;
 }
 label {
   width: 80px;
