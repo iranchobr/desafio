@@ -22,7 +22,6 @@
               @click="$emit('animal-sel', animal)"
               v-model="aSel"
               :value="animal"
-              :disabled="aSel.length == 1"
             />
           </td>
           <td>{{ animal.no_animal }}</td>
