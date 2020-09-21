@@ -75,7 +75,7 @@
         ></b-form-input>
       </div>
 
-      <button class="btn sub btn-primary" type="submit">
+      <button class="btn sub btn-dark" type="submit">
         Salvar
       </button>
     </form>
@@ -126,6 +126,11 @@ export default {
 .FormAnimal {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: #f9e4aa;
+  margin: 50px;
 }
 
 .form-group {
@@ -147,6 +152,7 @@ export default {
   width: 240px;
   height: 40px;
   font-size: 16px;
+  margin: auto;
 }
 .date {
   width: 200px;

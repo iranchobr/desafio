@@ -30,16 +30,16 @@
           v-model="formPessoa.endereco"
         />
       </div>
-      <div class="grupo">
-        <div>
-          <label class="col-md-4" for="input-nome">Sexo:</label>
+      <div class="grupo col-12">
+        <div class="col-8">
+          <label class="col-4" for="input-nome">Sexo:</label>
           <b-form-select
-            class="col-md-8"
+            class="col-8"
             v-model="formPessoa.sexo"
             :options="sexo"
           ></b-form-select>
         </div>
-        <div class="checkbox">
+        <div class="checkbox col-4">
           <input
             type="checkbox"
             name="ativo"
@@ -49,7 +49,7 @@
           <label for="input-ativo">Ativo</label>
         </div>
       </div>
-      <button class="btn btn-primary btn-block m-t-10" type="submit">
+      <button class="btn btn-dark " type="submit">
         Salvar
       </button>
     </form>
@@ -84,31 +84,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #999;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f9e4aa;
+  margin: 50px;
 }
 
-form {
-  display: inherit;
-  flex-direction: column;
-  align-items: flex-end;
-  margin: 10px 0;
-}
-
-input {
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-label {
-  margin: 0 10px;
-}
-
-button {
-  margin: 15px 0;
-}
 .grupo {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+}
+
+.btn {
+  margin: 20px auto;
 }
 </style>

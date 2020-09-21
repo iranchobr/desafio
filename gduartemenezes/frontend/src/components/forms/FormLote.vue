@@ -23,7 +23,7 @@
           v-model="formLote.ds_lote"
         />
       </div>
-      <button class="btn btn-primary btn-block m-t-10" type="submit">
+      <button class="btn btn-dark" type="submit">
         Salvar
       </button>
     </form>
@@ -54,7 +54,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #999;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: #f9e4aa;
+  margin: 50px;
+  padding: 20px;
 }
 
 form {
@@ -74,7 +78,7 @@ label {
 }
 
 button {
-  margin: 15px 0;
+  margin: auto;
 }
 .grupo {
   display: flex;
