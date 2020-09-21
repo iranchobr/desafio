@@ -14,7 +14,9 @@
       <TablePessoas />
     </div>
 
-    <div class="col-12" v-if="form.entidades == 'Animal'"></div>
+    <div class="col-12" v-if="form.entidades == 'Animal'">
+      <TableAnimais />
+    </div>
 
     <div class="col-12" v-if="form.entidades == 'Lote'">
       <TableLotes />
@@ -26,12 +28,14 @@
 // @ is an alias to /src
 import TablePessoas from "../components/tables/TablePessoas";
 import TableLotes from "../components/tables/TableLotes";
+import TableAnimais from "../components/tables/TableAnimais";
 
 export default {
   name: "Listas",
   components: {
     TablePessoas,
     TableLotes,
+    TableAnimais,
   },
   data() {
     return {
@@ -52,7 +56,6 @@ export default {
 
 <style scoped>
 .lists {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
