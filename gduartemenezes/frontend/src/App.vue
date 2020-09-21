@@ -33,7 +33,7 @@
   text-align: center;
   color: #a10e2e;
   min-height: 100vh;
-  background: #f3ca5bd8;
+  background: #fbeeca;
 }
 
 #nav {
