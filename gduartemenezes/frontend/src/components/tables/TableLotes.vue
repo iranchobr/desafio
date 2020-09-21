@@ -28,11 +28,8 @@
           <td>{{ lote.ds_lote }}</td>
 
           <td class="button-gp">
-            <button @click="findLote(lote.id)" class=" btn btn-sm btn-dark">
-              <b-icon
-                icon="search
-"
-              ></b-icon>
+            <button class="btn btn-sm btn-dark mr-10" @click="showModal(lote)">
+              <b-icon icon="search"></b-icon>
             </button>
 
             <button @click="editLote(lote.id)" class=" btn btn-sm btn-warning">
@@ -83,12 +80,30 @@
         </ul>
       </nav>
     </div>
+    <b-modal ref="my-modal" hide-header hide-footer title="Detalhe Lote">
+      <div class="d-block text-center">
+        <Detail :dados="elementoDetalhe" />
+      </div>
+      <button
+        class="btn btn-dark bt-modal"
+        variant="outline-danger"
+        block
+        @click="hideModal"
+      >
+        Fechar
+      </button>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import Detail from "../details/Detail";
+
 export default {
   name: "TableLotes",
+  components: {
+    Detail,
+  },
   data() {
     return {
       lSel: [],
@@ -154,9 +169,18 @@ export default {
       perPage: 4,
       pages: [],
       lote: {},
+      elementoDetalhe: {},
     };
   },
   methods: {
+    showModal(lote) {
+      this.elementoDetalhe = lote;
+      this.$refs["my-modal"].show();
+      console.log(lote);
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
     setPages() {
       let numberOfPages = Math.ceil(this.lotes.length / this.perPage);
       for (let index = 1; index <= numberOfPages; index++) {
@@ -201,6 +225,12 @@ button.page-link {
   font-weight: bold;
   width: 40px;
 }
+
+button.bt-modal {
+  width: 200px;
+  margin: 0 120px;
+}
+
 .offset {
   width: 500px !important;
   margin: 20px auto;

@@ -31,12 +31,12 @@
           <td class="button-gp">
             <button
               class="btn btn-sm btn-dark mr-10"
-              @click="findAnimal(animal.id)"
+              @click="showModal(animal)"
             >
               <b-icon icon="search"></b-icon>
             </button>
             <button
-              @click="editAnimal(animal.id)"
+              @click="editAnimal(animal)"
               class="btn btn-sm btn-warning mr-10"
             >
               <b-icon icon="pencil-square"></b-icon>
@@ -89,13 +89,30 @@
         </ul>
       </nav>
     </div>
+    <b-modal ref="my-modal" hide-header hide-footer title="Detalhe Animal">
+      <div class="d-block text-center">
+        <Detail :dados="elementoDetalhe" />
+      </div>
+      <button
+        class="btn btn-dark bt-modal"
+        variant="outline-danger"
+        block
+        @click="hideModal"
+      >
+        Fechar
+      </button>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import Detail from "../details/Detail";
+
 export default {
   name: "TableAnimais",
-
+  components: {
+    Detail,
+  },
   data() {
     return {
       // usado para limitar seleções na checkBox
@@ -3101,12 +3118,21 @@ export default {
         },
       ],
       animal: {},
+      elementoDetalhe: {},
       page: 1,
       perPage: 5,
       pages: [],
     };
   },
   methods: {
+    showModal(animal) {
+      this.elementoDetalhe = animal;
+      this.$refs["my-modal"].show();
+      console.log(animal);
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
     setPages() {
       let numberOfPages = Math.ceil(this.animais.length / this.perPage);
       for (let index = 1; index <= numberOfPages; index++) {
@@ -3148,6 +3174,11 @@ button.page-link {
   color: #222;
   font-weight: bold;
   width: 40px;
+}
+
+button.bt-modal {
+  width: 200px;
+  margin: 0 120px;
 }
 .offset {
   width: 500px !important;

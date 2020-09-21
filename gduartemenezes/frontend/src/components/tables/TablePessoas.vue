@@ -15,7 +15,6 @@
           <td>
             <!-- checkbox se limita a uma seleção apenas -->
             <!-- quando clicada emite uma função com dado pessoa a ser usado na importação do componente -->
-
             <input
               type="checkbox"
               name="sel-Pessoa"
@@ -31,7 +30,7 @@
           <td class="button-gp">
             <button
               class="btn btn-sm btn-dark mr-10"
-              @click="findPessoa(pessoa.id)"
+              @click="showModal(pessoa)"
             >
               <b-icon icon="search"></b-icon>
             </button>
@@ -89,12 +88,30 @@
         </ul>
       </nav>
     </div>
+    <b-modal ref="my-modal" hide-header hide-footer title="Detalhe Pessoa">
+      <div class="d-block text-center">
+        <Detail name="detalhe" :dados="elementoDetalhe" />
+      </div>
+      <button
+        class="btn btn-dark bt-modal"
+        variant="outline-danger"
+        block
+        @click="hideModal"
+      >
+        Fechar
+      </button>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import Detail from "../details/Detail";
+
 export default {
   name: "TablePessoas",
+  components: {
+    Detail,
+  },
 
   data() {
     return {
@@ -207,9 +224,18 @@ export default {
       perPage: 5,
       pages: [],
       pessoasPag: [],
+      elementoDetalhe: {},
     };
   },
   methods: {
+    showModal(pessoa) {
+      this.elementoDetalhe = pessoa;
+      this.$refs["my-modal"].show();
+      console.log(pessoa);
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
+    },
     setPages() {
       let numberOfPages = Math.ceil(this.pessoas.length / this.perPage);
       for (let index = 1; index <= numberOfPages; index++) {
@@ -251,6 +277,10 @@ button.page-link {
   color: #222;
   font-weight: bold;
   width: 40px;
+}
+button.bt-modal {
+  width: 200px;
+  margin: 0 120px;
 }
 .offset {
   width: 500px !important;
