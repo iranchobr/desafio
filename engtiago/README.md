@@ -1,4 +1,4 @@
-Olá mundo, bem vindo ao Meu Rancho desenvolvido expecialmente para o desafio.
+Olá mundo, bem vindo ao Meu Rancho desenvolvido especialmente para o desafio.
 
 Para iniciar digite os comandos:
 
