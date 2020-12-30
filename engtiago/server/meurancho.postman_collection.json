@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "2d61b75c-a03d-4c73-9bbb-a671dbe8589a",
+		"name": "Teste iranchobr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Get Pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_pessoa\": \"Tiago França\",\r\n    \"no_email\": \"engtiagofranca@gmail.com\",\r\n    \"endereco\": \"Rua 1 Nº2\",\r\n    \"sexo\": \"M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Pessoa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_pessoa\": \"Tiago França\",\r\n    \"no_email\": \"teasdasdste@gmail.com\",\r\n    \"endereco\": \"Rua 1 Nº2\",\r\n    \"sexo\": \"M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Animal",
+			"item": [
+				{
+					"name": "Get Animal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animal",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_animal\": \"BOI 1\",\r\n    \"no_raca\": \"Gordo\",\r\n    \"fk_id_pessoa\": 27,\r\n    \"id_fazenda\": 10,\r\n    \"vr_peso\": 1000.5,\r\n    \"sexo\": \"M\",\r\n    \"dt_nascimento\": \"2020-01-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animal",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Animal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_animal\": \"BOI 1\",\r\n    \"no_raca\": \"Gordo\",\r\n    \"fk_id_pessoa\": 8,\r\n    \"id_fazenda\": 10,\r\n    \"vr_peso\": 1000.5,\r\n    \"sexo\": \"M\",\r\n    \"dt_nascimento\": \"2020-01-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animal/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animal/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animal",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AnimalsLote",
+			"item": [
+				{
+					"name": "Get AnimalsLote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animalsLote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add AnimalsLote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_lote\": \"Lote TOP\",\r\n    \"ds_lote\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animalsLote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit AnimalsLote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_lote\": \"Lote TOP Edit\",\r\n    \"ds_lote\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animalsLote/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLote",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete AnimalsLote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animalsLote/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLote",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AnimalsXLote",
+			"item": [
+				{
+					"name": "Get AnimalsXLote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animalsLoteXRoute",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLoteXRoute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add AnimalsXLote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fk_id_animal\": 5,\r\n    \"fk_id_lote\": 1,\r\n    \"dt_entrada\": \"2020-12-25\",\r\n    \"dt_saida\": \"\",\r\n    \"dt_ultima_movimentacao\": \"2020-12-25\",\r\n    \"ic_bezerro\":  10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animalsLoteXRoute",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLoteXRoute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit AnimalsXLote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_lote\": \"Lote TOP Edit\",\r\n    \"ds_lote\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/animalsLoteXRoute/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLoteXRoute",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete AnimalsXLote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animalsLoteXRoute/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLoteXRoute",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AnimalsByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/animalsLoteXRoute/getByAnimalId/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"animalsLoteXRoute",
+								"getByAnimalId",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000/api"
+		}
+	]
+}
