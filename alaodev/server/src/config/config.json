@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "admin",
+    "database": "irancho",
+    "host": "127.0.0.1",
+    "port": 3307,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "admin",
+    "database": "irancho",
+    "host": "127.0.0.1",
+    "port": 3307,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "admin",
+    "database": "irancho",
+    "host": "127.0.0.1",
+    "port": 3307,
+    "dialect": "mysql"
+  }
+}
