@@ -1,0 +1,82 @@
+{{#each dados}}
+	<form action="../addPessoas" method="post">
+		<div class="card text-dark">
+			<div class="card-header  bg-success bg-gradient" style="color:balck;font-weight:bold;font-size:1.3em;">
+				Cadastro de Pessoas
+			</div>
+		
+			<div class="card-body">
+				<div class="row">
+					
+					<input type="hidden" name="id" id="id" value="{{dataValues.id}}">				
+
+					<div class="col-md-6">
+						<label for="no_pessoa" class="form-label">Nome Completo</label>
+						<input type="text" class="form-control is-valid" id="no_pessoa" value="{{dataValues.no_pessoa}}" required name="no_pessoa">
+						<div class="valid-feedback">
+							Preenchimento Obritatório
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<label for="no_email" class="form-label">E-Mail</label>
+						<input type="email" class="form-control is-valid" id="no_email" name="no_email" value="{{dataValues.no_email}}" required>
+						<div class="valid-feedback">
+							Preenchimento Obritatório
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<label for="endereco" class="form-label">Endereço</label>
+						<input type="text" class="form-control is-valid" name="endereco" id="endereco" value="{{dataValues.endereco}}" required>
+						<div class="valid-feedback">
+							Preenchimento Obritatório
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<label for="sexo" class="form-label">Sexo</label>
+						<select class="form-select id="sexo" name="sexo" aria-describedby="Sexo" required>
+							<option selected value="F">Feminino</option>
+							<option value="M">Masculino</option>
+						</select>		    		
+					</div>
+
+					<div class="col-3">
+						<label for="ic_ativo" class="form-label">Ativo?</label>
+						<div class="form-radio">
+							<input type="radio" id="ic_ativo"  checked name="ic_ativo" value=true>
+							<label class="form-radio-label" for="ic_ativo_true">
+								Sim
+							</label>
+							<input type="radio" id="ic_ativo" name="ic_ativo" value=false>
+							<label class="form-radio-label" for="ic_ativo_false">
+								Não
+							</label>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="card-footer text-muted bg-success bg-gradient">
+				<div class="col-12">
+					<button class="btn btn-light" type="submit">Salvar</button>
+				</div>
+			</div>
+		</div>  
+	</form>
+
+	<script>
+		window.addEventListener('load', function() {
+			radios = document.getElementsByName("ic_ativo");
+			
+			for (var i = 0; i < radios.length; i++) {
+			
+				if (radios[i].value === "{{dataValues.ic_ativo}}") {
+					radios[i].checked = true;
+					radios.value = "1"; 					
+				}
+			}
+		});
+	</script>
+{{/each}}

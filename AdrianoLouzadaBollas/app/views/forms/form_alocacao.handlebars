@@ -1,0 +1,79 @@
+<form action="addAlocacao" method="post">
+	<div class="card text-dark">
+  		<div class="card-header  bg-success bg-gradient" style="color:balck;font-weight:bold;font-size:1.3em;">
+    		Alocação de Animais
+  		</div>
+  	
+  		<div class="card-body">
+			<div class="row">
+
+				<div class="col-md-6">
+		    		<label for="fk_id_animal" class="form-label">Animal</label>
+		    		<select class="form-select is-invalid" id="fk_id_animal" aria-describedby="Selecione um animal" required>
+		      			<option selected disabled value="">Selecione...</option>
+		      			<option>...</option>
+		    		</select>
+		    		<div id="validationpessoa" class="invalid-feedback">
+		      			Por favor selecione um Animal!
+		    		</div>
+		  		</div>
+
+			  	<div class="col-md-6">
+		    		<label for="fk_id_lote" class="form-label">Lote</label>
+		    		<select class="form-select is-invalid" id="fk_id_lote" aria-describedby="Selecione um lote" required>
+		      			<option selected disabled value="">Selecione...</option>
+		      			<option>...</option>
+		    		</select>
+		    		<div id="validationpessoa" class="invalid-feedback">
+		      			Por favor selecione um Lote!
+		    		</div>
+		  		</div>
+		  		
+		  		<div class="col-md-3">
+		    		<label for="dt_entrada" class="form-label">Data de Entrada</label>
+		    		<input type="date" class="form-control is-valid" id="dt_entrada" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-3">
+		    		<label for="dt_saida" class="form-label">Data de Saída</label>
+		    		<input type="date" class="form-control is-valid" id="dt_saida" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-3">
+		    		<label for="dt_ultima_movimentacao" class="form-label">Última Movimentação</label>
+		    		<input type="date" class="form-control is-valid" id="dt_ultima_movimentacao" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-3">
+		  			<label for="ic_bezerro" class="form-label">Bezerro ?</label>
+		    		<div class="form-check">
+		      			<input class="form-check-input" type="checkbox" value="" id="ic_bezerro">
+		      			<label class="form-check-label" for="ic_bezerro">
+		        			Sim
+		      			</label>
+		    		</div>
+				</div>
+
+			
+			</div>
+
+		</div>
+
+		<div class="card-footer text-muted bg-success bg-gradient">
+			<div class="col-12">
+		    	<button class="btn btn-light" type="submit">Salvar</button>
+		  	</div>
+		</div>
+
+	</div>  
+</form>
+
