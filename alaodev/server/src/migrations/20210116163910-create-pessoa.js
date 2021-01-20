@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       no_pessoa: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       no_email: {
@@ -21,6 +22,7 @@ module.exports = {
         type: Sequelize.CHAR
       },
       ic_ativo: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

@@ -9,19 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       dt_entrada: {
+        allowNull: false,
         type: Sequelize.DATEONLY
       },
       dt_saida: {
         allowNull: true,
         type: Sequelize.DATEONLY
       },
-      dt_saida: {
-        type: Sequelize.DATEONLY
-      },
       dt_ultima_movimentacao: {
+        allowNull: false,
         type: Sequelize.DATEONLY
       },
       ic_bezerro: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       fk_id_animal: {

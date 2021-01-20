@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       no_lote: {
-          allowNull: false,
+        allowNull: false,
         type: Sequelize.STRING
       },
       ds_lote: {
-          allowNull: false,
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
