@@ -1,0 +1,17 @@
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 24px auto;
+}
+
+.input-box {
+  margin: 24px 0;
+}
