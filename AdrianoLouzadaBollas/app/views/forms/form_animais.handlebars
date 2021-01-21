@@ -1,0 +1,82 @@
+<form>
+	<div class="card text-dark">
+  		<div class="card-header  bg-success bg-gradient" style="color:balck;font-weight:bold;font-size:1.3em;">
+    		Cadastro de Animais
+  		</div>
+  	
+  		<div class="card-body">
+			<div class="row">
+
+				<div class="col-md-12">
+		    		<label for="fk_id_pessoa" class="form-label">Pessoa</label>
+		    		<select class="form-select is-invalid" id="fk_id_pessoa" aria-describedby="Selecione uma pessoa" required>
+		      			<option selected disabled value="">Selecione...</option>
+		      			<option>...</option>
+		    		</select>
+		    		<div id="validationpessoa" class="invalid-feedback">
+		      			Por favor selecione uma Pessoa!
+		    		</div>
+		  		</div>
+
+			  	<div class="col-md-2">
+		    		<label for="id_fazenda" class="form-label">Fazenda</label>
+		    		<input type="text" class="form-control is-valid" id="id_fazenda" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-5">
+		    		<label for="no_animal" class="form-label">Nome do Animal</label>
+		    		<input type="text" class="form-control is-valid" id="no_animal" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-5">
+		    		<label for="no_raca" class="form-label">Raça</label>
+		    		<input type="text" class="form-control is-valid" id="no_raca" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-3">
+		    		<label for="sexo" class="form-label">Sexo</label>
+		    		<select class="form-select id="sexo" aria-describedby="Sexo" required>
+		      			<option selected value="F">Feminino</option>
+		      			<option value="M">Masculino</option>
+		    		</select>		    		
+		  		</div>
+
+		  		<div class="col-md-3">
+		    		<label for="vr_peso" class="form-label">Peso</label>
+		    		<input type="Number" min="0" value="0" step="any" class="form-control is-valid" id="vr_peso" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+		  		<div class="col-md-6">
+		    		<label for="dt_nascimento" class="form-label">Data de Nascimento</label>
+		    		<input type="date" class="form-control is-valid" id="dt_nascimento" value="" required>
+		    		<div class="valid-feedback">
+		      			Preenchimento Obritatório
+		    		</div>
+		  		</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="card-footer text-muted bg-success bg-gradient">
+			<div class="col-12">
+		    	<button class="btn btn-light" type="submit">Salvar</button>
+		  	</div>
+		</div>
+
+	</div>  
+</form>
+

@@ -1,0 +1,65 @@
+<div class="container">
+    <p class="text-center">
+        <a href="/form_pessoas" class="btn btn-success">Inserir Pessoa</a>
+    </p>
+    
+</div>
+
+<div class="card text-dark">
+	<div class="card-header  bg-success bg-gradient" style="color:balck;font-weight:bold;font-size:1.3em;">
+  		Lista de Pessoas
+	</div>
+	<div class="card-body" style="padding: 0% 1%;">
+		<div class="row">
+            <table class="table table-bordered 
+            table-hover table-sm table-responsive-md" style="width:100%;">
+                <thead>
+                    <tr class="table-secondary" style="border-bottom: 2px solid #000;">
+                        <td class="text-center">Editar</td>
+                        <td class="text-center">Excluir</td>
+                        <td>Nome</td>
+                        <td>E-Mail</td>
+                        <td>Endereço</td>
+                        <td class="text-center">Sexo</td>
+                        <td class="text-center">Ativo</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each dados}}
+                        <tr>
+                            <td class="text-center">
+                                <a href="edita_pessoa/{{id}}">
+                                    <img src="images/Edit.png" width="16px">
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="exclui_pessoa/{{id}}">
+                                    <img src="images/Delete_2.png" width="16px">
+                                </a>
+                            </td>
+                            <td>{{{no_pessoa}}}</td>
+                            <td>{{{no_email}}}</td>
+                            <td>{{{endereco}}}</td>
+                            <td class="text-center">{{{sexo}}}</td>
+                            <td class="text-center">{{{ic_ativo}}}</td>
+                        </tr>                        
+                    {{/each}}                                        
+                </tbody>               
+            </table>
+	  	</div>
+	</div>
+	<div class="card-footer text-muted bg-success bg-gradient">
+        <div class="row">
+            <div class="d-flex flex-row-reverse bd-highlight h5" 
+                style="color: aliceblue;text-shadow:black 1px 1px 1px;">
+                <div class="p-2 bd-highlight">Total de Registros: {{dados.length}}</div>
+            </div>            
+        </div>
+        
+	</div>
+</div>  
+
+
+
+
+
