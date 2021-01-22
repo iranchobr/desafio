@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("animal_lote", {
+    return queryInterface.createTable("animal_lotes", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -64,6 +64,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    Example: return queryInterface.dropTable("animal_lote");
+    Example: return queryInterface.dropTable("animal_lotes");
   },
 };
