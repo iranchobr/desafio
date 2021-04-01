@@ -1,6 +1,13 @@
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from './routes';
+import { Header } from './component/Header';
+
 function App() {
   return (
-    <h1>Desafio Rancho</h1>
+    <BrowserRouter>
+      <Header />
+      <Routes />
+    </BrowserRouter>
   );
 }
 
