@@ -8,7 +8,7 @@ import { BatchAnimal } from '../pages/BatchAnimal';
 
 export const Routes: React.FC = () => (
   <Switch>
-    <Route path="/" exact component={CreatePeople} />
+    <Route path="/" exact component={People} />
     <Route path="/animal" exact component={Animal} />
     <Route path="/batch" exact component={Batch} />
     <Route path="/batch_animal" exact component={BatchAnimal} />
