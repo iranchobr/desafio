@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { CreatePeople } from '../pages/CreatePeople';
+import { People } from '../pages/People';
 import { Animal } from '../pages/Animal';
 import { Batch } from '../pages/Batch';
 import { BatchAnimal } from '../pages/BatchAnimal';

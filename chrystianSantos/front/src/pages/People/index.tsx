@@ -1,4 +1,4 @@
-export function CreatePeople() {
+export function People() {
   return (
     <div>
       <h1>People</h1>
