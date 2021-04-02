@@ -1,41 +1,68 @@
 import { FiCheckCircle, FiXCircle, FiEdit, FiDelete } from 'react-icons/fi';
+import { useCallback, useRef } from 'react';
+import { FormHandles } from '@unform/core';
 import { Container, Form, Table } from './styles';
 import { Input } from '../../component/Input';
+// import { Radio } from '../../component/Radio';
+import { CheckBox } from '../../component/CheckBox';
+import { Select } from '../../component/Select';
 
 export function People() {
+  const formRef = useRef<FormHandles>(null);
+
+  const selectOptions = [
+    { value: 'F', label: 'Feminino' },
+    { value: 'M', label: 'Masculino' },
+  ];
+
+  const handleFormSubmit = useCallback((data: any, { reset }) => {
+    console.log(data);
+    reset();
+  }, []);
+
   return (
     <Container>
       <h1>Pessoas</h1>
 
-      <Form>
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
         <div className="nameEmail">
-          <Input id="name" type="text" nameInput="name" nameLabel="Nome" />
-          <Input id="email" type="email" nameInput="email" nameLabel="E-mail" />
+          <Input
+            id="name"
+            nameInput="name"
+            nameLabel="Nome"
+            type="text"
+            placeholder="Nome"
+          />
+          <Input
+            id="email"
+            nameInput="email"
+            nameLabel="E-mail"
+            type="email"
+            placeholder="E-mail"
+          />
         </div>
         <Input
           id="endereco"
-          type="email"
-          nameInput="Endereco"
-          nameLabel="Endereco"
+          nameInput="Endereço"
+          nameLabel="Endereço"
+          type="text"
+          placeholder="Endereço"
         />
         <div className="sexActive">
           <div className="sex">
-            <label htmlFor="fem">Sexo</label>
-            <label htmlFor="fem">
-              <input type="radio" name="sex" value="Fem" id="fem" />
-              Feminino
-            </label>
-            <label htmlFor="mas">
-              <input type="radio" name="sex" value="Mas" id="mas" />
-              Masculino
-            </label>
+            <Select name="sexo" label="Selecione o sexo">
+              {selectOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </Select>
           </div>
           <div className="active">
-            <input type="checkbox" id="active" name="active" />
-            <label htmlFor="active">Ativo</label>
+            <CheckBox name="ativo" label="Ativo" />
           </div>
         </div>
-        <button type="button">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
       </Form>
 
       <Table>

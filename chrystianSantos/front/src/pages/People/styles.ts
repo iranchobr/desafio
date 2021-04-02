@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form as FormUnform } from '@unform/web';
 
 export const Container = styled.div`
   flex: 1;
@@ -10,7 +11,7 @@ export const Container = styled.div`
   overflow: auto;
 `;
 
-export const Form = styled.form`
+export const Form = styled(FormUnform)`
   margin: 30px;
   .nameEmail {
     display: grid;

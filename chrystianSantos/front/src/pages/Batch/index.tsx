@@ -20,12 +20,19 @@ export function Batch() {
       <h1>Lotes</h1>
       <Form ref={formRef} onSubmit={handleFormSubmit}>
         <div className="nameDescription">
-          <Input id="name" nameInput="name" nameLabel="Nome" type="text" />
+          <Input
+            id="name"
+            nameInput="name"
+            nameLabel="Nome"
+            type="text"
+            placeholder="Nome"
+          />
           <Input
             id="description"
             nameInput="description"
             nameLabel="Descrição"
             type="text"
+            placeholder="Descrição"
           />
         </div>
         <button type="submit">Cadastrar</button>
