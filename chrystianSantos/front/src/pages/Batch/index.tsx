@@ -1,12 +1,24 @@
+import { useCallback, useRef } from 'react';
 import { FiCheckCircle, FiDelete, FiEdit } from 'react-icons/fi';
 import { Input } from '../../component/Input';
 import { Container, Form, Table } from './styles';
 
+interface IBatchProps {
+  name: string;
+  description: string;
+}
+
 export function Batch() {
+  const formRef = useRef(null);
+
+  const handleFormSubmit = useCallback((data: IBatchProps) => {
+    console.log(data);
+  }, []);
+
   return (
     <Container>
       <h1>Lotes</h1>
-      <Form>
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
         <div className="nameDescription">
           <Input id="name" nameInput="name" nameLabel="Nome" type="text" />
           <Input
