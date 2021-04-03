@@ -1,22 +1,16 @@
 {
   "env": {
-    "es6": true,
-    "node": true,
-    "jest": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": [
@@ -24,29 +18,18 @@
     "prettier"
   ],
   "rules": {
-    "camelcase": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "_"
-      }
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "import/prefer-default-export": "off",
+    "eslint-import/no-unresolved": [
+      "off"
     ],
-    "no-useless-constructor": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "interface",
-        "format": [
-          "PascalCase"
-        ],
-        "custom": {
-          "regex": "^I[A-Z]",
-          "match": true
-        }
-      }
+    "class-methods-use-this": [
+      "off"
     ],
-    "class-methods-use-this": "off",
-    "prettier/prettier": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
