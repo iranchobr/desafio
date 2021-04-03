@@ -1,0 +1,45 @@
+{
+  "name": "desafio_rancho_back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+    "start": "ts-node -r tsconfig-paths/register src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "celebrate": "^13.0.4",
+    "class-transformer": "^0.3.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.15.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.0.0-pre.52",
+    "tsyringe": "^4.3.0",
+    "typeorm": "^0.2.25",
+    "uuidv4": "^6.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/hapi__joi": "^17.1.6",
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.6"
+  }
+}
