@@ -18,6 +18,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.0.0-pre.52",
     "tsyringe": "^4.3.0",
