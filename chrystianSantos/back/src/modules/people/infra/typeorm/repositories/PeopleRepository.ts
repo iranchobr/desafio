@@ -32,4 +32,9 @@ export class PeopleRepository implements IPeopleRepository {
     });
     return findByEmail;
   }
+
+  async findAll(): Promise<People[]> {
+    const findPeoples = await this.ormRepository.find();
+    return findPeoples;
+  }
 }

@@ -1,4 +1,6 @@
 // import { classToClass } from 'class-transformer';
+import { GetPeopleService } from '@modules/people/services/GetPeopleService';
+import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { CreatePeopleService } from '../../../services/CreatePeopleService';
@@ -15,6 +17,13 @@ export class PeopleController {
       sex,
     });
 
-    return res.json(peopleCreate);
+    return res.json(classToClass(peopleCreate));
+  }
+
+  public async show(req: Request, res: Response): Promise<Response> {
+    const getPeopleService = container.resolve(GetPeopleService);
+    const getPeople = await getPeopleService.execute();
+
+    return res.json(classToClass(getPeople));
   }
 }

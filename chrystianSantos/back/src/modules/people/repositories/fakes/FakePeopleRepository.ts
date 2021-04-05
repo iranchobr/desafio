@@ -10,6 +10,7 @@ export class FakePeopleRepository implements IPeopleRepository {
     const newPeople = new People();
     Object.assign(newPeople, data);
     newPeople.id = uuid();
+    this.arrPeople.push(newPeople);
     return newPeople;
   }
 
@@ -25,5 +26,9 @@ export class FakePeopleRepository implements IPeopleRepository {
   async findByEmai(email: string): Promise<People | undefined> {
     const findPeople = this.arrPeople.find(people => people.email === email);
     return findPeople;
+  }
+
+  async findAll(): Promise<People[]> {
+    return this.arrPeople;
   }
 }

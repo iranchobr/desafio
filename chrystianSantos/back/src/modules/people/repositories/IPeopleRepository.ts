@@ -6,4 +6,5 @@ export interface IPeopleRepository {
   save(data: People): Promise<People>;
   delete(data: People): Promise<People>;
   findByEmai(email: string): Promise<People | undefined>;
+  findAll(): Promise<People[]>;
 }

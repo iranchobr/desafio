@@ -6,7 +6,7 @@ const peopleController = new PeopleController();
 
 const peopleRoutes = Router();
 
-peopleRoutes.use(
+peopleRoutes.post(
   '/',
   celebrate({
     [Segments.BODY]: {
@@ -19,5 +19,7 @@ peopleRoutes.use(
   }),
   peopleController.create,
 );
+
+peopleRoutes.get('/', peopleController.show);
 
 export default peopleRoutes;
