@@ -1,36 +1,39 @@
-import { Animal } from '@modules/animal/infra/typeorm/entities/Animal';
+import { People } from '@modules/people/infra/typeorm/entities/People';
 import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('people')
-export class People {
+@Entity('animal')
+export class Animal {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  id_people: string;
 
   @Column()
   name: string;
 
   @Column()
-  email: string;
-
-  @Column()
-  endereco: string;
+  breed: number;
 
   @Column()
   sex: string;
 
   @Column()
-  active: boolean;
+  wigth: number;
 
-  @OneToMany(() => Animal, animal => animal.people)
-  animal: Animal[];
+  @Column()
+  born: Date;
+
+  @ManyToOne(() => People, people => people.animal)
+  people: People;
 
   @Exclude()
   @CreateDateColumn()
