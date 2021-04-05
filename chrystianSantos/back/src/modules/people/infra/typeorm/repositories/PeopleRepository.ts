@@ -20,8 +20,9 @@ export class PeopleRepository implements IPeopleRepository {
     return peopleSave;
   }
 
-  async delete(): Promise<People> {
-    return new People();
+  async delete(data: People): Promise<boolean> {
+    await this.ormRepository.remove(data);
+    return true;
   }
 
   async findByEmai(email: string): Promise<People | undefined> {

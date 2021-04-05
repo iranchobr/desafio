@@ -22,5 +22,6 @@ peopleRoutes.post(
 
 peopleRoutes.get('/', peopleController.show);
 peopleRoutes.put('/:id', peopleController.update);
+peopleRoutes.delete('/:id', peopleController.delete);
 
 export default peopleRoutes;

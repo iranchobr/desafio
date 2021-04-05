@@ -14,8 +14,10 @@ export class FakePeopleRepository implements IPeopleRepository {
     return newPeople;
   }
 
-  async delete(data: People): Promise<People> {
-    return new People();
+  async delete(data: People): Promise<boolean> {
+    const arrPeople = this.arrPeople.filter(people => people.id !== data.id);
+    this.arrPeople = arrPeople;
+    return true;
   }
 
   async save(data: People): Promise<People> {

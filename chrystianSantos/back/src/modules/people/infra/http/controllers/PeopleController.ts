@@ -1,5 +1,6 @@
 // import { classToClass } from 'class-transformer';
 import { ChangePeopleSerice } from '@modules/people/services/ChangePeopleService';
+import { DeletePeopleService } from '@modules/people/services/DeletePeopleService';
 import { GetPeopleService } from '@modules/people/services/GetPeopleService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
@@ -43,5 +44,12 @@ export class PeopleController {
     });
 
     return res.json(classToClass(changePeople));
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const peopleDeleteService = container.resolve(DeletePeopleService);
+    const peopleDeleted = await peopleDeleteService.execute(id);
+    return res.json(peopleDeleted);
   }
 }
