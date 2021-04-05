@@ -31,6 +31,7 @@ describe('ChangePeople', () => {
       endereco: 'Rua 27 numero 302',
       sex: 'm',
     });
+    await fakePeopleRepository.save(people1);
 
     const peopleChange = await changePeopleService.execute({
       id: people1.id,

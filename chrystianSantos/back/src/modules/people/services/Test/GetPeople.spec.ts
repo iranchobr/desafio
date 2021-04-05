@@ -19,6 +19,7 @@ describe('GetPeople', () => {
       endereco: 'Rua 27 numero 302',
       sex: 'm',
     });
+    await fakePeopleRepository.save(people1);
     const people2 = await fakePeopleRepository.create({
       name: 'Livia',
       active: true,
@@ -26,6 +27,7 @@ describe('GetPeople', () => {
       endereco: 'Rua 27 numero 302',
       sex: 'f',
     });
+    await fakePeopleRepository.save(people2);
     const peoples = await getPeopleService.execute();
 
     expect(peoples).toEqual([people1, people2]);

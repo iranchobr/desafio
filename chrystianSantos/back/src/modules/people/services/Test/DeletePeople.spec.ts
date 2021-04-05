@@ -19,6 +19,8 @@ describe('DeletePeople', () => {
       sex: 'm',
     });
 
+    await fakePeopleRepository.save(people1);
+
     const peoples = await deletePeopleService.execute(people1.id);
 
     expect(peoples).toEqual(true);

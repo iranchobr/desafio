@@ -10,7 +10,6 @@ export class FakePeopleRepository implements IPeopleRepository {
     const newPeople = new People();
     Object.assign(newPeople, data);
     newPeople.id = uuid();
-    this.arrPeople.push(newPeople);
     return newPeople;
   }
 
