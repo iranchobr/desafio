@@ -21,5 +21,6 @@ peopleRoutes.post(
 );
 
 peopleRoutes.get('/', peopleController.show);
+peopleRoutes.put('/:id', peopleController.update);
 
 export default peopleRoutes;

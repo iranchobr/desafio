@@ -37,4 +37,9 @@ export class PeopleRepository implements IPeopleRepository {
     const findPeoples = await this.ormRepository.find();
     return findPeoples;
   }
+
+  async findById(id: string): Promise<People | undefined> {
+    const findById = await this.ormRepository.findOne(id);
+    return findById;
+  }
 }
