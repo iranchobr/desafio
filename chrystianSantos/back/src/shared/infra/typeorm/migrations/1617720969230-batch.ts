@@ -17,6 +17,7 @@ export class batch1617720969230 implements MigrationInterface {
             name: 'name',
             type: 'varchar',
             isNullable: false,
+            isUnique: true,
           },
           {
             name: 'description',
