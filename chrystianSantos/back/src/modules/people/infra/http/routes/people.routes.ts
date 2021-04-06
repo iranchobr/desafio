@@ -21,7 +21,22 @@ peopleRoutes.post(
 );
 
 peopleRoutes.get('/', peopleController.show);
-peopleRoutes.put('/:id', peopleController.update);
+peopleRoutes.put(
+  '/:id',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      active: Joi.boolean().required(),
+      email: Joi.string().email().required(),
+      endereco: Joi.string().required(),
+      sex: Joi.string().required(),
+    },
+    [Segments.PARAMS]: {
+      id: Joi.string().required(),
+    },
+  }),
+  peopleController.update,
+);
 peopleRoutes.delete('/:id', peopleController.delete);
 
 export default peopleRoutes;
