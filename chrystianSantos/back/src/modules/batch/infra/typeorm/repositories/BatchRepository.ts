@@ -33,4 +33,9 @@ export class BatchRepository implements IBatchRepositories {
     const findBatch = await this.ormRepository.find();
     return findBatch;
   }
+
+  async findById(id: string): Promise<Batch | undefined> {
+    const findBatch = await this.ormRepository.findOne(id);
+    return findBatch;
+  }
 }

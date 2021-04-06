@@ -29,4 +29,9 @@ export class FakeBatchRepository implements IBatchRepositories {
   async findAll(): Promise<Batch[]> {
     return this.arrBatch;
   }
+
+  async findById(id: string): Promise<Batch | undefined> {
+    const findById = this.arrBatch.find(batch => batch.id === id);
+    return findById;
+  }
 }

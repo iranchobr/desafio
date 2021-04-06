@@ -19,4 +19,18 @@ batchRoutes.post(
 
 batchRoutes.get('/', batchController.show);
 
+batchRoutes.put(
+  '/:id',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      description: Joi.string().required(),
+    },
+    [Segments.PARAMS]: {
+      id: Joi.string().required().uuid(),
+    },
+  }),
+  batchController.update,
+);
+
 export default batchRoutes;

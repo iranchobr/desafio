@@ -6,4 +6,5 @@ export interface IBatchRepositories {
   save(data: Batch): Promise<Batch>;
   findNameBatch(name: string): Promise<Batch | undefined>;
   findAll(): Promise<Batch[]>;
+  findById(id: string): Promise<Batch | undefined>;
 }
