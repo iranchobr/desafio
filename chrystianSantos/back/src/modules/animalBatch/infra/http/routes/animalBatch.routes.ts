@@ -20,4 +20,6 @@ animalBatchRoutes.post(
   animalBatchController.create,
 );
 
+animalBatchRoutes.get('/', animalBatchController.show);
+
 export default animalBatchRoutes;

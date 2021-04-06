@@ -31,4 +31,8 @@ export class FakeAnimalBatchRepository implements IAnimalBatchRepositorie {
       this.arrAnimalBatchRepository.length - 1
     ];
   }
+
+  async findAll(): Promise<AnimalBatch[]> {
+    return this.arrAnimalBatchRepository;
+  }
 }

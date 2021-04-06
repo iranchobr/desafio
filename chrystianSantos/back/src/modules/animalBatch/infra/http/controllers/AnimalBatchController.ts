@@ -1,4 +1,5 @@
 import { CreateAnimalBatchService } from '@modules/animalBatch/services/CreateAnimalBatchService';
+import { ShowAnimalBatchService } from '@modules/animalBatch/services/ShowAnimalBatchService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
@@ -19,5 +20,11 @@ export class AnimalBatchController {
     });
 
     return res.json(classToClass(createAnimalBatch));
+  }
+
+  async show(req: Request, res: Response): Promise<Response> {
+    const showAnimalBatchService = container.resolve(ShowAnimalBatchService);
+    const showAnimal = await showAnimalBatchService.execute();
+    return res.json(classToClass(showAnimal));
   }
 }
