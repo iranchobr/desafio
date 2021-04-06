@@ -1,8 +1,11 @@
+import { AnimalBatch } from '@modules/animalBatch/infra/typeorm/entities/AnimalBatch';
 import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -17,6 +20,10 @@ export class Batch {
 
   @Column()
   description: string;
+
+  @OneToMany(() => AnimalBatch, animalBatch => animalBatch.batch)
+  @JoinColumn({ name: 'id' })
+  animal_batch: AnimalBatch;
 
   @Exclude()
   @CreateDateColumn()

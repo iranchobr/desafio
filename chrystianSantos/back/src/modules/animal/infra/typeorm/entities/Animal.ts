@@ -1,3 +1,4 @@
+import { AnimalBatch } from '@modules/animalBatch/infra/typeorm/entities/AnimalBatch';
 import { People } from '@modules/people/infra/typeorm/entities/People';
 import { Exclude } from 'class-transformer';
 import {
@@ -36,6 +37,10 @@ export class Animal {
   @ManyToOne(() => People, people => people.animal)
   @JoinColumn({ name: 'id_people' })
   people: People;
+
+  @ManyToOne(() => AnimalBatch, animalBatch => animalBatch.animal)
+  @JoinColumn({ name: 'id' })
+  animal_batch: AnimalBatch;
 
   @Exclude()
   @CreateDateColumn()

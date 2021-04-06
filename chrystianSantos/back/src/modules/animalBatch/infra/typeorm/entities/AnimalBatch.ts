@@ -1,38 +1,47 @@
 import { Animal } from '@modules/animal/infra/typeorm/entities/Animal';
+import { Batch } from '@modules/batch/infra/typeorm/entities/Batch';
 import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('people')
-export class People {
+@Entity('animal_batch')
+export class AnimalBatch {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  name: string;
+  id_animal: string;
 
   @Column()
-  email: string;
+  id_batch: string;
 
   @Column()
-  endereco: string;
+  dt_entry: Date;
 
   @Column()
-  sex: string;
+  dt_exit: Date;
 
   @Column()
-  active: boolean;
+  @UpdateDateColumn()
+  dt_last_movement: Date;
 
-  @OneToMany(() => Animal, animal => animal.people)
-  @JoinColumn({ name: 'id' })
+  @Column()
+  calf: string;
+
+  @ManyToOne(() => Animal, animal => animal.animal_batch)
+  @JoinColumn({ name: 'id_animal' })
   animal: Animal[];
+
+  @ManyToOne(() => Batch, batch => batch.animal_batch)
+  @JoinColumn({ name: 'id_batch' })
+  batch: Batch[];
 
   @Exclude()
   @CreateDateColumn()

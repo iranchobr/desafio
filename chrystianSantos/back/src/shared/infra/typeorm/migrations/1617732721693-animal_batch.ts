@@ -36,7 +36,7 @@ export class animalBatch1617732721693 implements MigrationInterface {
           {
             name: 'dt_last_movement',
             type: 'date',
-            isNullable: false,
+            default: 'now()',
           },
           {
             name: 'calf',
