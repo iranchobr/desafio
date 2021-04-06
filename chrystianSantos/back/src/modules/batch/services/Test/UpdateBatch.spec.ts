@@ -1,4 +1,5 @@
 import { FakeBatchRepository } from '@modules/batch/repositories/fakes/FakeBatchRepository';
+import AppError from '@shared/errors/AppError';
 import { UpdateBatchService } from '../UpdateBatchService';
 
 let fakeBatchRepository: FakeBatchRepository;
@@ -28,5 +29,15 @@ describe('UpdateBatch', () => {
       name: 'Vacinados',
       description: 'Lote de animais vacinados contra aftosa',
     });
+  });
+
+  it('Should be able to update a Batch not exists', async () => {
+    await expect(
+      updateBatchService.execute({
+        id: '123',
+        name: 'Lote não exist',
+        description: 'Descrição não existe',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
