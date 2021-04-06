@@ -21,4 +21,6 @@ animalRoutes.post(
   animalController.create,
 );
 
+animalRoutes.get('/', animalController.show);
+
 export default animalRoutes;

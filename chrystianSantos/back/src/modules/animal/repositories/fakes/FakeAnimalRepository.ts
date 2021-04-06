@@ -17,4 +17,8 @@ export class FakeAnimalRepository implements IAnimalRepository {
     this.arrAnimal.push(data);
     return this.arrAnimal[this.arrAnimal.length - 1];
   }
+
+  async findAll(): Promise<Animal[]> {
+    return this.arrAnimal;
+  }
 }

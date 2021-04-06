@@ -34,7 +34,7 @@ export class Animal {
   born: Date;
 
   @ManyToOne(() => People, people => people.animal)
-  @JoinColumn({ name: 'id' })
+  @JoinColumn({ name: 'id_people' })
   people: People;
 
   @Exclude()

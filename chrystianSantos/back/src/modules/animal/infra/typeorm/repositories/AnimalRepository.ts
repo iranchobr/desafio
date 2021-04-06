@@ -19,4 +19,11 @@ export class AnimalRepository implements IAnimalRepository {
     const animalSave = await this.ormRepository.save(data);
     return animalSave;
   }
+
+  async findAll(): Promise<Animal[]> {
+    const findAnimals = await this.ormRepository.find({
+      relations: ['people'],
+    });
+    return findAnimals;
+  }
 }
