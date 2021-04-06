@@ -17,4 +17,6 @@ batchRoutes.post(
   batchController.create,
 );
 
+batchRoutes.get('/', batchController.show);
+
 export default batchRoutes;

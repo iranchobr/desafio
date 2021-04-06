@@ -28,4 +28,9 @@ export class BatchRepository implements IBatchRepositories {
     });
     return findByName;
   }
+
+  async findAll(): Promise<Batch[]> {
+    const findBatch = await this.ormRepository.find();
+    return findBatch;
+  }
 }

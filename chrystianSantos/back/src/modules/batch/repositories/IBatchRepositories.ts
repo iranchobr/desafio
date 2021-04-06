@@ -5,4 +5,5 @@ export interface IBatchRepositories {
   create(data: ICreateBatchDTO): Promise<Batch>;
   save(data: Batch): Promise<Batch>;
   findNameBatch(name: string): Promise<Batch | undefined>;
+  findAll(): Promise<Batch[]>;
 }

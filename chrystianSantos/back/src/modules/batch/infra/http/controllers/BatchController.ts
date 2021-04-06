@@ -15,4 +15,11 @@ export class BatchController {
 
     return res.json(classToClass(createBatch));
   }
+
+  public async show(req: Request, res: Response): Promise<Response> {
+    const showBatchService = container.resolve(ShowBatchService);
+    const showBatch = await showBatchService.execute();
+
+    return res.json(classToClass(showBatch));
+  }
 }
