@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -21,18 +22,19 @@ export class Animal {
   name: string;
 
   @Column()
-  breed: number;
+  breed: string;
 
   @Column()
   sex: string;
 
   @Column()
-  wigth: number;
+  weigth: number;
 
   @Column()
   born: Date;
 
   @ManyToOne(() => People, people => people.animal)
+  @JoinColumn({ name: 'id' })
   people: People;
 
   @Exclude()
