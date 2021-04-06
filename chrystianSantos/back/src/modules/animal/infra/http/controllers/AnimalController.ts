@@ -1,4 +1,5 @@
 import { CreateAnimalService } from '@modules/animal/services/CreateAnimalService';
+import { UpdateAnimalService } from '@modules/animal/services/UpdateAnimalService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
@@ -23,5 +24,23 @@ export class AnimalController {
     const showAnimalService = container.resolve(ShowAnimalService);
     const showAnimals = await showAnimalService.execute();
     return res.json(showAnimals);
+  }
+
+  public async update(req: Request, res: Response): Promise<Response> {
+    const { name, id_people, breed, sex, weigth, born } = req.body;
+    const { id } = req.params;
+
+    const updateAnimalService = container.resolve(UpdateAnimalService);
+    const updateAnimal = await updateAnimalService.execute({
+      id,
+      name,
+      id_people,
+      breed,
+      sex,
+      weigth,
+      born,
+    });
+
+    return res.json(classToClass(updateAnimal));
   }
 }

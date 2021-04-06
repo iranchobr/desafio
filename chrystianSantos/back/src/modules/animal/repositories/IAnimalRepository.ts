@@ -5,4 +5,5 @@ export interface IAnimalRepository {
   create(data: ICreateAnimalDTO): Promise<Animal>;
   save(data: Animal): Promise<Animal>;
   findAll(): Promise<Animal[]>;
+  findById(id: string): Promise<Animal | undefined>;
 }

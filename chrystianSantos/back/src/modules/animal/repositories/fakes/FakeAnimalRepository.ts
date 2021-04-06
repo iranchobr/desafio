@@ -21,4 +21,9 @@ export class FakeAnimalRepository implements IAnimalRepository {
   async findAll(): Promise<Animal[]> {
     return this.arrAnimal;
   }
+
+  async findById(id: string): Promise<Animal | undefined> {
+    const findAnimal = this.arrAnimal.find(animal => animal.id === id);
+    return findAnimal;
+  }
 }

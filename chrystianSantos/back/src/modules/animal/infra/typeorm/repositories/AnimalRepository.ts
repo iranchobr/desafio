@@ -26,4 +26,9 @@ export class AnimalRepository implements IAnimalRepository {
     });
     return findAnimals;
   }
+
+  async findById(id: string): Promise<Animal | undefined> {
+    const findAnimal = await this.ormRepository.findOne(id);
+    return findAnimal;
+  }
 }
