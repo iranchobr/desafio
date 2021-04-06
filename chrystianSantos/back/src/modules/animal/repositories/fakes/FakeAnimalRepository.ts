@@ -26,4 +26,12 @@ export class FakeAnimalRepository implements IAnimalRepository {
     const findAnimal = this.arrAnimal.find(animal => animal.id === id);
     return findAnimal;
   }
+
+  async delete(data: Animal): Promise<boolean> {
+    const arrAnimalRemoved = this.arrAnimal.filter(
+      animal => animal.id !== data.id,
+    );
+    this.arrAnimal = arrAnimalRemoved;
+    return true;
+  }
 }

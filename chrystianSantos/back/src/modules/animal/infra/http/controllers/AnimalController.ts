@@ -1,4 +1,5 @@
 import { CreateAnimalService } from '@modules/animal/services/CreateAnimalService';
+import { DeleteAnimalService } from '@modules/animal/services/DeleteAnimalService';
 import { UpdateAnimalService } from '@modules/animal/services/UpdateAnimalService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
@@ -42,5 +43,12 @@ export class AnimalController {
     });
 
     return res.json(classToClass(updateAnimal));
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const deleteAnimalService = container.resolve(DeleteAnimalService);
+    const deleteAnimal = await deleteAnimalService.execute(id);
+    return res.json(deleteAnimal);
   }
 }

@@ -31,4 +31,9 @@ export class AnimalRepository implements IAnimalRepository {
     const findAnimal = await this.ormRepository.findOne(id);
     return findAnimal;
   }
+
+  async delete(data: Animal): Promise<boolean> {
+    await this.ormRepository.remove(data);
+    return true;
+  }
 }

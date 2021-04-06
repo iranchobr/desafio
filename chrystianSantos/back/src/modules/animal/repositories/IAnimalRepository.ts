@@ -6,4 +6,5 @@ export interface IAnimalRepository {
   save(data: Animal): Promise<Animal>;
   findAll(): Promise<Animal[]>;
   findById(id: string): Promise<Animal | undefined>;
+  delete(data: Animal): Promise<boolean>;
 }

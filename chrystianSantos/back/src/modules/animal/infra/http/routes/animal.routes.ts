@@ -41,4 +41,14 @@ animalRoutes.put(
   animalController.update,
 );
 
+animalRoutes.delete(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().required(),
+    },
+  }),
+  animalController.delete,
+);
+
 export default animalRoutes;
