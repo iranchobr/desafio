@@ -1,4 +1,5 @@
 import { CreateBatchService } from '@modules/batch/services/CreateBatchService';
+import { DeleteBatchService } from '@modules/batch/services/DeleteBatchService';
 import { ShowBatchService } from '@modules/batch/services/ShowBatchService';
 import { UpdateBatchService } from '@modules/batch/services/UpdateBatchService';
 import { classToClass } from 'class-transformer';
@@ -36,5 +37,13 @@ export class BatchController {
     });
 
     return res.json(classToClass(updateBatch));
+  }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const deleteBatchService = container.resolve(DeleteBatchService);
+    const deleteBatch = await deleteBatchService.execute(id);
+    return res.json(deleteBatch);
   }
 }

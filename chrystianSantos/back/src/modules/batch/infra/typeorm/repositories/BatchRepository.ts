@@ -38,4 +38,9 @@ export class BatchRepository implements IBatchRepositories {
     const findBatch = await this.ormRepository.findOne(id);
     return findBatch;
   }
+
+  async delete(data: Batch): Promise<boolean> {
+    await this.ormRepository.remove(data);
+    return true;
+  }
 }

@@ -34,4 +34,10 @@ export class FakeBatchRepository implements IBatchRepositories {
     const findById = this.arrBatch.find(batch => batch.id === id);
     return findById;
   }
+
+  async delete(data: Batch): Promise<boolean> {
+    const removeBatch = this.arrBatch.filter(batch => batch.id !== data.id);
+    this.arrBatch = removeBatch;
+    return true;
+  }
 }

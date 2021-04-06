@@ -33,4 +33,14 @@ batchRoutes.put(
   batchController.update,
 );
 
+batchRoutes.delete(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().required().uuid(),
+    },
+  }),
+  batchController.delete,
+);
+
 export default batchRoutes;
