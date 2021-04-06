@@ -51,4 +51,26 @@ describe('CreateAnimal', () => {
 
     expect(createdAnimal).toHaveProperty('id');
   });
+
+  it('Should be able to create a new Animal with people desactive', async () => {
+    const newPeople = await fakePeopleRepository.create({
+      name: 'Chrystian',
+      active: false,
+      email: 'chrystian@gmail.com',
+      endereco: 'Rua 27 n 302',
+      sex: 'm',
+    });
+    await fakePeopleRepository.save(newPeople);
+
+    await expect(
+      createAnimalService.execute({
+        born: new Date(),
+        breed: 'Nelore',
+        id_people: newPeople.id,
+        name: 'Duque',
+        sex: 'm',
+        weigth: 900,
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });

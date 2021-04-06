@@ -28,6 +28,10 @@ export class CreateAnimalService {
       throw new AppError('Pessoa não encontrada', 404);
     }
 
+    if (!findPeople.active) {
+      throw new AppError('Pessoa desativada', 401);
+    }
+
     const animalCreate = await this.animalRepository.create({
       born,
       weigth,
