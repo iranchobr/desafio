@@ -7,7 +7,7 @@ import { UpdateAnimalService } from '../UpdateAnimalService';
 let fakePeopleRepository: FakePeopleRepository;
 let fakeAnimalRepository: FakeAnimalRepository;
 let updateAnimalService: UpdateAnimalService;
-describe('ShowAnimal', () => {
+describe('UpdateAnimal', () => {
   beforeEach(() => {
     fakePeopleRepository = new FakePeopleRepository();
     fakeAnimalRepository = new FakeAnimalRepository();
