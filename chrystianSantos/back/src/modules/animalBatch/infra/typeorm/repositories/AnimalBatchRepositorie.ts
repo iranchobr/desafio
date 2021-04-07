@@ -26,4 +26,14 @@ export class AnimalBatchRepository implements IAnimalBatchRepositorie {
     });
     return findAnimalBatch;
   }
+
+  async findById(id: string): Promise<AnimalBatch | undefined> {
+    const findAnimalBatch = await this.ormRepository.findOne(id);
+    return findAnimalBatch;
+  }
+
+  async delete(data: AnimalBatch): Promise<boolean> {
+    await this.ormRepository.remove(data);
+    return true;
+  }
 }

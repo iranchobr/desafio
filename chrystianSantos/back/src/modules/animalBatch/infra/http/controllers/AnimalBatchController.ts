@@ -1,4 +1,5 @@
 import { CreateAnimalBatchService } from '@modules/animalBatch/services/CreateAnimalBatchService';
+import { DeleteAnimalBatchService } from '@modules/animalBatch/services/DeleteAnimalBatchService';
 import { ShowAnimalBatchService } from '@modules/animalBatch/services/ShowAnimalBatchService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
@@ -26,5 +27,16 @@ export class AnimalBatchController {
     const showAnimalBatchService = container.resolve(ShowAnimalBatchService);
     const showAnimal = await showAnimalBatchService.execute();
     return res.json(classToClass(showAnimal));
+  }
+
+  async delete(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const deleteAnimalBatchService = container.resolve(
+      DeleteAnimalBatchService,
+    );
+
+    const deleteAnimalBatch = await deleteAnimalBatchService.execute(id);
+
+    return res.json(deleteAnimalBatch);
   }
 }

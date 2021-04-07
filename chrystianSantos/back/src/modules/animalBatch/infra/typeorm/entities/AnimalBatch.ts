@@ -33,7 +33,7 @@ export class AnimalBatch {
   dt_last_movement: Date;
 
   @Column()
-  calf: string;
+  calf: boolean;
 
   @ManyToOne(() => Animal, animal => animal.animal_batch)
   @JoinColumn({ name: 'id_animal' })

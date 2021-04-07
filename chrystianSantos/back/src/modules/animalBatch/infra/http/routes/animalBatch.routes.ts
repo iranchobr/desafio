@@ -22,4 +22,14 @@ animalBatchRoutes.post(
 
 animalBatchRoutes.get('/', animalBatchController.show);
 
+animalBatchRoutes.delete(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().required().uuid(),
+    },
+  }),
+  animalBatchController.delete,
+);
+
 export default animalBatchRoutes;

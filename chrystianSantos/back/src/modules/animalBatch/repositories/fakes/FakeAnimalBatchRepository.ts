@@ -35,4 +35,19 @@ export class FakeAnimalBatchRepository implements IAnimalBatchRepositorie {
   async findAll(): Promise<AnimalBatch[]> {
     return this.arrAnimalBatchRepository;
   }
+
+  async findById(id: string): Promise<AnimalBatch | undefined> {
+    const findAnimalBatch = this.arrAnimalBatchRepository.find(
+      animalBatch => animalBatch.id === id,
+    );
+    return findAnimalBatch;
+  }
+
+  async delete(data: AnimalBatch): Promise<boolean> {
+    const newArray = this.arrAnimalBatchRepository.filter(
+      animalBatch => animalBatch.id !== data.id,
+    );
+    this.arrAnimalBatchRepository = newArray;
+    return true;
+  }
 }
