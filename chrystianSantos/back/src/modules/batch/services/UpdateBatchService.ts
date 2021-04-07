@@ -1,3 +1,4 @@
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { Batch } from '../infra/typeorm/entities/Batch';
@@ -14,6 +15,8 @@ export class UpdateBatchService {
   constructor(
     @inject('BatchRepository')
     private batchRepository: IBatchRepositories,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ id, name, description }: IRequest): Promise<Batch> {
@@ -29,6 +32,8 @@ export class UpdateBatchService {
     });
 
     const batchChanged = await this.batchRepository.save(findBatch);
+
+    await this.redisCacheProvider.invalidate('batch');
 
     return batchChanged;
   }

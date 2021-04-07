@@ -1,3 +1,4 @@
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ICreateBatchDTO } from '../dtos/ICreateBatchDTO';
@@ -9,6 +10,8 @@ export class CreateBatchService {
   constructor(
     @inject('BatchRepository')
     private batchRepository: IBatchRepositories,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ name, description }: ICreateBatchDTO): Promise<Batch> {
@@ -24,6 +27,7 @@ export class CreateBatchService {
     });
 
     const batchSave = await this.batchRepository.save(createBatch);
+    await this.redisCacheProvider.invalidate('batch');
     return batchSave;
   }
 }

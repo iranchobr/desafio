@@ -1,3 +1,4 @@
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { IBatchRepositories } from '../repositories/IBatchRepositories';
@@ -7,6 +8,8 @@ export class DeleteBatchService {
   constructor(
     @inject('BatchRepository')
     private batchRepository: IBatchRepositories,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute(id: string): Promise<boolean> {
@@ -17,6 +20,8 @@ export class DeleteBatchService {
     }
 
     await this.batchRepository.delete(findBatch);
+
+    await this.redisCacheProvider.recovery('batch');
 
     return true;
   }
