@@ -1,23 +1,25 @@
 import { FiCheckCircle, FiXCircle, FiEdit, FiDelete } from 'react-icons/fi';
 import { useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
+import { toast } from 'react-toastify';
 import { Container, Form, Table } from './styles';
 import { Input } from '../../component/Input';
-// import { Radio } from '../../component/Radio';
 import { CheckBox } from '../../component/CheckBox';
 import { Select } from '../../component/Select';
+import { api } from '../../services/api';
 
 export function People() {
   const formRef = useRef<FormHandles>(null);
 
-  const selectOptions = [
+  const selectOptionsSex = [
     { value: 'F', label: 'Feminino' },
     { value: 'M', label: 'Masculino' },
   ];
 
   const handleFormSubmit = useCallback((data: any, { reset }) => {
-    console.log(data);
-    reset();
+    // api.post('',data})
+    // reset();
+    toast.success('Cadastrado com sucesso');
   }, []);
 
   return (
@@ -51,7 +53,7 @@ export function People() {
         <div className="sexActive">
           <div className="sex">
             <Select name="sexo" label="Selecione o sexo">
-              {selectOptions.map(option => (
+              {selectOptionsSex.map(option => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
