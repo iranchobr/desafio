@@ -1,4 +1,5 @@
 import { IPeopleRepository } from '@modules/people/repositories/IPeopleRepository';
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ICreateAnimalDTO } from '../dtos/ICreateAnimalDTO';
@@ -12,6 +13,8 @@ export class CreateAnimalService {
     private animalRepository: IAnimalRepository,
     @inject('PeopleRepository')
     private peopleRepository: IPeopleRepository,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -42,6 +45,8 @@ export class CreateAnimalService {
     });
 
     const animalSave = await this.animalRepository.save(animalCreate);
+
+    await this.redisCacheProvider.invalidate('animals');
 
     return animalSave;
   }
