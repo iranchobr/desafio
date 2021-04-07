@@ -1,3 +1,4 @@
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { People } from '../infra/typeorm/entities/People';
@@ -17,6 +18,8 @@ export class ChangePeopleSerice {
   constructor(
     @inject('PeopleRepository')
     private peopleRepository: IPeopleRepository,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -42,6 +45,8 @@ export class ChangePeopleSerice {
     });
 
     const peopleSaved = await this.peopleRepository.save(peopleFind);
+
+    await this.redisCacheProvider.invalidate('people');
 
     return peopleSaved;
   }

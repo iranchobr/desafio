@@ -1,3 +1,4 @@
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ICreatePeople } from '../dtos/ICreatePeopleDTO';
@@ -9,6 +10,8 @@ export class CreatePeopleService {
   constructor(
     @inject('PeopleRepository')
     private peopleRepository: IPeopleRepository,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute(data: ICreatePeople): Promise<People> {
@@ -20,6 +23,8 @@ export class CreatePeopleService {
 
     const createPeople = await this.peopleRepository.create(data);
     const peopleSaved = await this.peopleRepository.save(createPeople);
+    await this.redisCacheProvider.invalidate('people');
+
     return peopleSaved;
   }
 }
