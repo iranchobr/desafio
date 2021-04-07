@@ -19,7 +19,7 @@ describe('DeleteAnimal', () => {
     );
   });
 
-  it('Should be able to create a new Animal', async () => {
+  it('Should be able to delete a Animal', async () => {
     const newAnimal = await fakeAnimalRepository.create({
       id_people: '123',
       born: new Date(),
