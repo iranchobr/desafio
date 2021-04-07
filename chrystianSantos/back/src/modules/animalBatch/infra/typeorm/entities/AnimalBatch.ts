@@ -29,7 +29,6 @@ export class AnimalBatch {
   dt_exit: Date;
 
   @Column()
-  @UpdateDateColumn()
   dt_last_movement: Date;
 
   @Column()

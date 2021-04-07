@@ -1,6 +1,7 @@
 import { CreateAnimalBatchService } from '@modules/animalBatch/services/CreateAnimalBatchService';
 import { DeleteAnimalBatchService } from '@modules/animalBatch/services/DeleteAnimalBatchService';
 import { ShowAnimalBatchService } from '@modules/animalBatch/services/ShowAnimalBatchService';
+import { UpdateAnimalBatchService } from '@modules/animalBatch/services/UpdateAnimalBatchService';
 import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
@@ -38,5 +39,25 @@ export class AnimalBatchController {
     const deleteAnimalBatch = await deleteAnimalBatchService.execute(id);
 
     return res.json(deleteAnimalBatch);
+  }
+
+  async update(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { id_batch, id_animal, dt_entry, dt_exit, calf } = req.body;
+
+    const updateAnimalBatchService = container.resolve(
+      UpdateAnimalBatchService,
+    );
+
+    const updateAnimalBatch = await updateAnimalBatchService.execute({
+      id,
+      id_animal,
+      id_batch,
+      calf,
+      dt_exit,
+      dt_entry,
+    });
+
+    return res.json(classToClass(updateAnimalBatch));
   }
 }
