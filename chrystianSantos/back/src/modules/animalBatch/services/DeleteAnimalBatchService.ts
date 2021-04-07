@@ -1,4 +1,5 @@
 import { IAnimalBatchRepositorie } from '@modules/animalBatch/repositories/IAnimalBatchRepository';
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
@@ -7,6 +8,8 @@ export class DeleteAnimalBatchService {
   constructor(
     @inject('AnimalBatchRepository')
     private animalBatchRepository: IAnimalBatchRepositorie,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute(id: string): Promise<boolean> {
@@ -17,6 +20,8 @@ export class DeleteAnimalBatchService {
     }
 
     await this.animalBatchRepository.delete(findAnimalBatch);
+
+    await this.redisCacheProvider.invalidate('animalsBatch');
 
     return true;
   }

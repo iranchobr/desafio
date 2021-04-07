@@ -1,5 +1,6 @@
 import { IAnimalRepository } from '@modules/animal/repositories/IAnimalRepository';
 import { IBatchRepositories } from '@modules/batch/repositories/IBatchRepositories';
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { ICreateAnimalBatchDTO } from '../dtos/ICreateAnimalBatchDTO';
@@ -15,6 +16,8 @@ export class CreateAnimalBatchService {
     private batchRepository: IBatchRepositories,
     @inject('AnimalRepository')
     private animalRepository: IAnimalRepository,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute(data: ICreateAnimalBatchDTO): Promise<AnimalBatch> {
@@ -35,6 +38,8 @@ export class CreateAnimalBatchService {
     const animalBatchSave = await this.animalBatchRepository.save(
       createAnimalBatch,
     );
+
+    await this.redisCacheProvider.invalidate('animalsBatch');
 
     return animalBatchSave;
   }

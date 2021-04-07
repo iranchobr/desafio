@@ -1,5 +1,6 @@
 import { IAnimalRepository } from '@modules/animal/repositories/IAnimalRepository';
 import { IBatchRepositories } from '@modules/batch/repositories/IBatchRepositories';
+import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
 import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { AnimalBatch } from '../infra/typeorm/entities/AnimalBatch';
@@ -23,6 +24,8 @@ export class UpdateAnimalBatchService {
     private batchRepository: IBatchRepositories,
     @inject('AnimalRepository')
     private animalRepository: IAnimalRepository,
+    @inject('CacheProvider')
+    private redisCacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -61,6 +64,8 @@ export class UpdateAnimalBatchService {
     });
 
     const animalBatch = await this.animalBatchRepository.save(findAnimalBatch);
+
+    await this.redisCacheProvider.invalidate('animalsBatch');
 
     return animalBatch;
   }
