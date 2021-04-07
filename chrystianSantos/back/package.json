@@ -18,6 +18,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "ioredis": "^4.25.0",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.0.0-pre.52",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/express": "^4.17.7",
     "@types/hapi__joi": "^17.1.6",
+    "@types/ioredis": "^4.22.2",
     "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
