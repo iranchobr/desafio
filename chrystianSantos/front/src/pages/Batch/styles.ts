@@ -37,7 +37,6 @@ export const Form = styled(FormUnform)`
 `;
 
 export const Table = styled.table`
-  margin-top: 20px;
   width: 100%;
 
   table {
@@ -59,9 +58,20 @@ export const Table = styled.table`
 
   button {
     border: 0;
-
+    background-color: transparent;
     svg {
       margin-left: 5px;
     }
+  }
+`;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  button + button {
+    margin-left: 20px;
   }
 `;
