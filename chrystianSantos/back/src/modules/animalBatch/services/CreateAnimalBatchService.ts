@@ -40,6 +40,8 @@ export class CreateAnimalBatchService {
     );
 
     await this.redisCacheProvider.invalidate('animalsBatch');
+    animalBatchSave.batch = batchExists;
+    animalBatchSave.animal = animalExists;
 
     return animalBatchSave;
   }

@@ -36,11 +36,11 @@ export class AnimalBatch {
 
   @ManyToOne(() => Animal, animal => animal.animal_batch)
   @JoinColumn({ name: 'id_animal' })
-  animal: Animal[];
+  animal: Animal;
 
   @ManyToOne(() => Batch, batch => batch.animal_batch)
   @JoinColumn({ name: 'id_batch' })
-  batch: Batch[];
+  batch: Batch;
 
   @Exclude()
   @CreateDateColumn()

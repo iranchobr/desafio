@@ -21,7 +21,7 @@ export class DeleteBatchService {
 
     await this.batchRepository.delete(findBatch);
 
-    await this.redisCacheProvider.recovery('batch');
+    await this.redisCacheProvider.invalidate('batch');
 
     return true;
   }
