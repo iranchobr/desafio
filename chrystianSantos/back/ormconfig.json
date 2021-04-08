@@ -3,7 +3,7 @@
     "type": "postgres",
     "host": "localhost",
     "port": "5432",
-    "username": "postgres",
+    "username": "desafio_rancho",
     "password": "postgres",
     "database": "desafio_rancho",
     "entities": [
