@@ -62,6 +62,8 @@ export class UpdateAnimalService {
 
     await this.redisCacheProvider.invalidate('animals');
 
+    animalUpdate.people = peopleExists;
+
     return animalUpdate;
   }
 }

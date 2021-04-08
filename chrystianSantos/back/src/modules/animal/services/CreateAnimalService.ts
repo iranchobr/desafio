@@ -48,6 +48,8 @@ export class CreateAnimalService {
 
     await this.redisCacheProvider.invalidate('animals');
 
+    animalSave.people = findPeople;
+
     return animalSave;
   }
 }
