@@ -46,3 +46,42 @@ export const Form = styled(FormUnform)`
     }
   }
 `;
+
+export const Table = styled.table`
+  width: 100%;
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+    text-align: center;
+  }
+
+  button {
+    border: 0;
+    background-color: transparent;
+    svg {
+      margin-left: 5px;
+    }
+  }
+`;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  button + button {
+    margin-left: 20px;
+  }
+`;

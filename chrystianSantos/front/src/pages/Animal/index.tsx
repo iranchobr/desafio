@@ -43,7 +43,6 @@ export function Animal() {
         await api.get<IDataPeople[]>('/people'),
         await api.get<IDataAnimal[]>('/animal'),
       ]);
-
       setPeoples(peoplesList.data);
       setAnimals(animalsList.data);
     }
@@ -207,7 +206,7 @@ export function Animal() {
                     new Date(animal.born),
                   )}
                 </td>
-                <td>{animal.people.name}</td>
+                <td>{animal.people?.name || 'Pessoa removida da base'}</td>
                 <td>
                   <button
                     onClick={() => handleChangeAnimal(animal)}
