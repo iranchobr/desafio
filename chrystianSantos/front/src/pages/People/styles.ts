@@ -44,7 +44,6 @@ export const Form = styled(FormUnform)`
 
   button {
     margin-top: 20px;
-    margin-left: 85%;
     background-color: #92a42a;
     padding: 10px 15px;
     border: 0;
@@ -81,9 +80,19 @@ export const Table = styled.table`
 
   button {
     border: 0;
-
+    background-color: transparent;
     svg {
       margin-left: 5px;
     }
+  }
+`;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  button + button {
+    margin-left: 20px;
   }
 `;
