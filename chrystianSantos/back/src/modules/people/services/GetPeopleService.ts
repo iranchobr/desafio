@@ -1,5 +1,6 @@
-import { ICacheProvider } from '@shared/container/provider/ChacheProvider/model/ICacheProvider';
+import { classToClass } from 'class-transformer';
 import { inject, injectable } from 'tsyringe';
+import { ICacheProvider } from '../../../shared/container/provider/ChacheProvider/model/ICacheProvider';
 import { People } from '../infra/typeorm/entities/People';
 import { IPeopleRepository } from '../repositories/IPeopleRepository';
 
@@ -17,7 +18,7 @@ export class GetPeopleService {
 
     if (!findPeople) {
       findPeople = await this.peopleRepository.findAll();
-      await this.redisCacheProvider.save('people', findPeople);
+      await this.redisCacheProvider.save('people', classToClass(findPeople));
     }
 
     return findPeople;
