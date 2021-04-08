@@ -39,17 +39,9 @@ export function People() {
 
   const handleFormSubmit = useCallback(
     async (dataPeople: IDataPeople, { reset }) => {
-      const objForm = {
-        name: dataPeople.name,
-        active: dataPeople.active,
-        email: dataPeople.email,
-        endereco: dataPeople.endereco,
-        sex: dataPeople.sex,
-      };
-
       if (labelButton === 'Cadastrar') {
         try {
-          const { data } = await api.post('/people', objForm);
+          const { data } = await api.post('/people', dataPeople);
           setPeople([...peoples, data]);
           reset();
           toast.success('Cadastrado com sucesso');
@@ -60,7 +52,10 @@ export function People() {
       }
 
       try {
-        const { data } = await api.put(`/people/${peopleSelect?.id}`, objForm);
+        const { data } = await api.put(
+          `/people/${peopleSelect?.id}`,
+          dataPeople,
+        );
 
         const arrayChanged = peoples.filter(
           people => people.id !== peopleSelect?.id,
