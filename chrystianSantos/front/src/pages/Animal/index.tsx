@@ -43,7 +43,7 @@ export function Animal() {
         await api.get<IDataPeople[]>('/people'),
         await api.get<IDataAnimal[]>('/animal'),
       ]);
-      console.log(animalsList);
+
       setPeoples(peoplesList.data);
       setAnimals(animalsList.data);
     }
@@ -80,7 +80,7 @@ export function Animal() {
       try {
         const { data } = await api.put(`/animal/${animalSelect?.id}`, objSave);
         const newArrAnimal = animals.filter(
-          animal => animal.id !== animalData.id,
+          animal => animal.id !== animalSelect?.id,
         );
         setAnimals([...newArrAnimal, data]);
         reset();
