@@ -23,6 +23,7 @@ Este desafio continha o objetivo de desenvolver uma aplicação onde teria as se
 - Tsyringe
 - Typeorm
 - Redis
+- Jest
 
 ### Database
 
