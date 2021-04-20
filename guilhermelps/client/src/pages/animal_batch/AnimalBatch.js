@@ -86,7 +86,7 @@ export default {
       })
     },
     edit(id) {
-      this.$http.get(`/animal-batcha/${id}`).then(result => {
+      this.$http.get(`/animal-batch/${id}`).then(result => {
         this.animalBatch = result.data.animalBatch
         this.$bvModal.show('modal-animal-batch')
       }).catch(() => {
