@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "desafio_irancho",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "desafio_irancho",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "desafio_irancho",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
+  }
+}
