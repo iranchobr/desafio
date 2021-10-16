@@ -1,0 +1,50 @@
+CREATE database irancho;
+USE irancho;
+
+CREATE TABLE clientes (
+  id NOT NULL auto_increment,
+  no_pessoa varchar(255),
+  no_email varchar(255) default NULL,
+  endereco mediumint default NULL,
+  sexo char,
+  ic_ativo boolean,
+  PRIMARY KEY (idCliente)
+) AUTO_INCREMENT=1;
+
+CREATE TABLE animal (
+  id NOT NULL auto_increment,
+  fk_id_pessoa,
+  id_fazenda,
+  no_animal,
+  no_raca,
+  sexo,
+  vr_peso,
+  dt_nascimento
+) AUTO_INCREMENT=1;
+
+CREATE TABLE animal (
+  id NOT NULL auto_increment,
+  fk_id_pessoa,
+  id_fazenda,
+  no_animal,
+  no_raca,
+  sexo,
+  vr_peso,
+  dt_nascimento
+) AUTO_INCREMENT=1;
+
+CREATE animal_lote (
+  id NOT NULL auto_increment,
+  no_lote
+  ds_lote
+) AUTO_INCREMENT=1;
+
+CREATE animal_x_lote (
+  id NOT NULL auto_increment,
+  fk_id_animal,
+  fk_id_lote,
+  dt_entrada,
+  dt_saida,
+  dt_ultima_movimentacao,
+  ic_bezerro
+) AUTO_INCREMENT=1;
