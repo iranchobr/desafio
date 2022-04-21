@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "BSD-2-Clause",
+  "scripts":{
+    "dev":"nodemon"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sucrase": "^3.21.0"
+  }
+}
