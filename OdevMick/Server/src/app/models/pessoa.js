@@ -1,9 +1,12 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
-import { Animal } from "./animal.js";
 const options = require("./../../config/database.js");
 const sequelize = new Sequelize(options);
 
-class Pessoa extends Model {};
+class Pessoa extends Model {
+  static associate(models){
+    Pessoa.hasMany(models.Animal);
+  }
+};
 
 Pessoa.init({
   id:{
@@ -35,16 +38,4 @@ Pessoa.init({
   modelName:'Pessoa',
   tableName:'pessoas'
 });
-Pessoa.hasMany(Animal);
-Animal.belongsTo(Pessoa,{
-  foreignKey:"fk_id_pessoa",
-  onUpdate:'CASCADE',
-  onDelete:'CASCADE'
-});
-
-
-
-
-
-
 

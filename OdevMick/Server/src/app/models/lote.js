@@ -1,9 +1,15 @@
 import { Sequelize, DataTypes, Model } from 'sequelize';
-
 const options = require("./../../config/database.js");
 const sequelize = new Sequelize(options);
 
-class Lote extends Model{};
+export class Lote extends Model{
+  static associate(models){
+    Lote.belongsToMany(models.Animal, { 
+    through:'animais_lotes',
+    foreignKey:'fk_id_lote'
+  });
+  }
+};
 
 Lote.init({
   id: { 
@@ -24,3 +30,4 @@ Lote.init({
   modelName: 'Lote',
   tableName: 'lotes'
 });
+

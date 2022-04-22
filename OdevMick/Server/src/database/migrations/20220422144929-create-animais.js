@@ -40,6 +40,10 @@ module.exports = {
       },
       dt_nascimento:{
         type: Sequelize.DATEONLY
+      },
+      ic_bezerro:{
+        type: Sequelize.BOOLEAN,
+        allowNull:false
       }
       });
   },
