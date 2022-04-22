@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "license": "BSD-2-Clause",
-  "scripts":{
-    "dev":"nodemon"
+  "scripts": {
+    "dev": "nodemon"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.4.1",
     "sucrase": "^3.21.0"
   }
 }
