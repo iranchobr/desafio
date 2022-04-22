@@ -2,7 +2,19 @@ import { Sequelize,DataTypes, Model } from 'sequelize';
 const options = require('./../../config/database.js');
 const sequelize = new Sequelize(options);
 
-export class Animal extends Model {};
+export class Animal extends Model {
+  static associate(models){
+    Animal.belongsToMany(models.Lote,{ 
+      through:'animais_lotes', 
+      foreignKey:'fk_id_animal'
+    });
+    Animal.belongsTo(models.Pessoa,{
+      foreignKey:"fk_id_pessoa",
+      onUpdate:'CASCADE',
+      onDelete:'CASCADE'
+    });
+  }
+};
 
 Animal.init({
     id:{
