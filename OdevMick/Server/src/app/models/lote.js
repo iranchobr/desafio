@@ -1,0 +1,26 @@
+import { Sequelize, DataTypes, Model } from 'sequelize';
+
+const options = require("./../../config/database.js");
+const sequelize = new Sequelize(options);
+
+class Lote extends Model{};
+
+Lote.init({
+  id: { 
+    type: DataTypes.BIGINT,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  no_lote: {
+    type: DataTypes.STRING,
+    allowNull:false,
+  },
+  ds_lote: {
+    type: DataTypes.STRING,
+  },
+},
+  {
+  sequelize,
+  modelName: 'Lote',
+  tableName: 'lotes'
+});
