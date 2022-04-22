@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "src/app.js",
+  "main": "src/app/app.js",
   "license": "BSD-2-Clause",
   "scripts": {
     "dev": "nodemon"
