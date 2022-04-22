@@ -54,5 +54,6 @@ AnimalLote.init({
 },{
   sequelize,
   modelName:'AnimalLote',
-  tableName:'animais_lotes'
+  tableName:'animais_lotes',
+  timestamps:false,
 });

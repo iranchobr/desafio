@@ -28,6 +28,7 @@ Lote.init({
   {
   sequelize,
   modelName: 'Lote',
-  tableName: 'lotes'
+  tableName: 'lotes',
+  timestamps:false,
 });
 

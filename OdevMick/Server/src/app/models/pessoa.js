@@ -2,7 +2,7 @@ import { Sequelize, DataTypes, Model } from "sequelize";
 const options = require("./../../config/database.js");
 const sequelize = new Sequelize(options);
 
-class Pessoa extends Model {
+export class Pessoa extends Model {
   static associate(models){
     Pessoa.hasMany(models.Animal);
   }
@@ -36,6 +36,7 @@ Pessoa.init({
 },{
   sequelize,
   modelName:'Pessoa',
-  tableName:'pessoas'
+  tableName:'pessoas',
+  timestamps:false,
 });
 
