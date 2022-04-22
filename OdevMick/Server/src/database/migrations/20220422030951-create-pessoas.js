@@ -22,9 +22,11 @@ module.exports = {
                 type:Sequelize.STRING
               },
               sexo:{
+                allowNull:false,
                 type:Sequelize.ENUM('M','F')
               },
               ic_ativo:{
+                allowNull:false,
                 type:Sequelize.BOOLEAN
               }
         }) 
