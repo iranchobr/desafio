@@ -4,8 +4,11 @@ const sequelizeErrors = {
     {"message":"Email and Name must be unique!","status":409}, 
   ],
   msgAnimais:[
-    {"message":"Name of animal already exists!","status":409}, 
+    {"message":"Name of Animal already exists!","status":409}, 
     {"message":"Id of Pessoa not found!","status":404}
+  ],
+  msgLotes:[
+    {"message":"Name of Lote already exists!","status":409},
   ]
 };
 export class CustomSequelizeError {
@@ -17,9 +20,9 @@ export class CustomSequelizeError {
     }
 
     static handleErrors(err,model){
-      const { errors, msgAnimais, msgPessoas } = sequelizeErrors;
+      const { errors, msgAnimais, msgPessoas, msgLotes } = sequelizeErrors;
       errors.forEach((error,index)=>{
-        const reference = model==='Animal'?msgAnimais:msgPessoas
+        const reference = model==='Animal'?msgAnimais:model==='Lote'?msgLotes:msgPessoas
         if(err.name===error){
             throw new CustomSequelizeError(reference[index].message,reference[index].status)
         }
