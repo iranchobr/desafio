@@ -1,6 +1,6 @@
 import createPessoaService from "../../services/pessoas/createPessoa.service";
 
-const createPessoaController = async ( req, res ) => {
+const createPessoaController = ( req, res ) => {
     const reqBody = req.body;
     createPessoaService(reqBody)
     .then( result => {
