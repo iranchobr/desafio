@@ -1,4 +1,4 @@
-export class CustomValidationError {
+export class CustomSequelizeError {
     constructor(this,message,status){
         this.name = 'CustomValidationError';
         this.message = message;
