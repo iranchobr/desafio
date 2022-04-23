@@ -10,10 +10,9 @@ const createPessoaService = async (reqBody) => {
 };
 
 const handleErrors = async (err) =>{
-    const errors = ['SequelizeUniqueConstraintError','SequelizeValidationError'];
+    const errors = ['SequelizeUniqueConstraintError'];
         const messages = [
-            {"message":"email or name must be unique","status":409},
-            {"message":"email and name are required","status":400}
+            {"message":"email or name must be unique","status":409}
         ];
         errors.forEach((error,index)=>{
             if(err.name===error){
