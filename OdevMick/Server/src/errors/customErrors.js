@@ -1,3 +1,13 @@
+const sequelizeErrors = {
+  errors:['SequelizeUniqueConstraintError','SequelizeForeignKeyConstraintError'],
+  msgPessoas: [
+    {"message":"email or name must be unique","status":409}, 
+  ],
+  msgAnimais:[
+    {"message":"email or name must be unique","status":409}, 
+    {"message":"Id of Pessoa not found!","status":404}
+  ]
+};
 export class CustomSequelizeError {
     constructor(this,message,status){
         this.name = 'CustomSequelizeError';
@@ -6,12 +16,12 @@ export class CustomSequelizeError {
         this.stack = (new Error()).stack;
     }
 
-    static handleErrors(err){
-      const errors = ['SequelizeUniqueConstraintError'];
-      const messages = [{"message":"email or name must be unique","status":409}];
+    static handleErrors(err,model){
+      const { errors, msgAnimais, msgPessoas } = sequelizeErrors;
       errors.forEach((error,index)=>{
+        const reference = model==='Animal'?msgAnimais:msgPessoas
         if(err.name===error){
-            throw new CustomSequelizeError(messages[index].message,messages[index].status)
+            throw new CustomSequelizeError(reference[index].message,reference[index].status)
         }
       })
     };

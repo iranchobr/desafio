@@ -11,7 +11,6 @@ module.exports = {
       vr_peso:210.5,
       dt_nascimento:'2020/01/10'
     }]);
-    
   },
 
   async down (queryInterface, Sequelize) {

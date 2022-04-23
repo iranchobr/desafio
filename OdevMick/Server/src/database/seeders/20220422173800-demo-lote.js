@@ -5,7 +5,8 @@ module.exports = {
    await queryInterface.bulkInsert('lotes', [
      {
        no_lote:'Teste lote',
-       ds_lote:'Teste descrição'
+       ds_lote:'Teste descrição',
+       
      }
    ]);
   

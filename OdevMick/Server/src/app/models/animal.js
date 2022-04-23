@@ -38,6 +38,7 @@ Animal.init({
     no_animal:{
       type:DataTypes.STRING,
       allowNull:false,
+      unique: true
     },
     no_raca:{
       type:DataTypes.STRING,

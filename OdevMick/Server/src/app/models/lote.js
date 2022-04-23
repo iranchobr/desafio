@@ -20,6 +20,7 @@ Lote.init({
   no_lote: {
     type: DataTypes.STRING,
     allowNull:false,
+    unique: true
   },
   ds_lote: {
     type: DataTypes.STRING,

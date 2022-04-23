@@ -25,6 +25,7 @@ module.exports = {
       no_animal:{
         type: Sequelize.STRING,
         allowNull:false,
+        unique: true
       },
       no_raca:{
         type: Sequelize.STRING,
@@ -41,10 +42,6 @@ module.exports = {
       dt_nascimento:{
         type: Sequelize.DATEONLY
       },
-      ic_bezerro:{
-        type: Sequelize.BOOLEAN,
-        allowNull:false
-      }
       });
   },
 

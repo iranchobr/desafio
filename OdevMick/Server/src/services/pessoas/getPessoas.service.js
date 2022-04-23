@@ -1,8 +1,7 @@
 import { Pessoa } from '../../app/models/pessoa';
 
 const getPessoasService = async() => {
- const pessoasDb  = await Pessoa.findAll();
- const pessoasObj = pessoasDb.map(pessoa=>pessoa.dataValues); 
- return pessoasObj;
+ const pessoas  = await Pessoa.findAll();
+ return pessoas;
 };
 export default getPessoasService;

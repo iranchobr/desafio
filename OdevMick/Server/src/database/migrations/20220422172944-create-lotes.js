@@ -12,6 +12,7 @@ module.exports = {
           no_lote:{
             type:Sequelize.STRING,
             allowNull:false,
+            unique: true
           },
           ds_lote:{
             type:Sequelize.STRING
