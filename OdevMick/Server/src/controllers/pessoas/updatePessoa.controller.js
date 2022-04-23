@@ -5,6 +5,9 @@ const updatePessoaController = async ( req, res ) => {
     const reqBody = req.body;
     updatePessoaService(reqBody,id)
     .then( result => {
+      if(!result){
+        return res.status(404).json({"msg":"Pessoa not found!"})
+      }
       return res.json(result);
     })
     .catch( err => {
