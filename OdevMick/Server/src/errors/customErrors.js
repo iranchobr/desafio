@@ -1,10 +1,10 @@
 const sequelizeErrors = {
   errors:['SequelizeUniqueConstraintError','SequelizeForeignKeyConstraintError'],
   msgPessoas: [
-    {"message":"Email and Name must be unique","status":409}, 
+    {"message":"Email and Name must be unique!","status":409}, 
   ],
   msgAnimais:[
-    {"message":"Name of animal must be unique","status":409}, 
+    {"message":"Name of animal already exists!","status":409}, 
     {"message":"Id of Pessoa not found!","status":404}
   ]
 };
