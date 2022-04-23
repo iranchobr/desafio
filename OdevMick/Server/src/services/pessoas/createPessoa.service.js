@@ -5,7 +5,7 @@ const createPessoaService = async (reqBody) => {
         const pessoa = await Pessoa.create(reqBody);
         return pessoa;
     }catch(err){
-        return CustomSequelizeError.handleErrors(err);
+        return CustomSequelizeError.handleErrors(err,'Pessoa');
     };
 };
 export default createPessoaService;

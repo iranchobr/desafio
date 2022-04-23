@@ -6,7 +6,7 @@ const updatePessoaService = async (reqBody,id) => {
     const pessoa = Pessoa.findByPk(id);
     return pessoa;
   }catch(err){
-    return CustomSequelizeError.handleErrors(err);
+    return CustomSequelizeError.handleErrors(err,"Pessoa");
   }
 };
 export default updatePessoaService;
