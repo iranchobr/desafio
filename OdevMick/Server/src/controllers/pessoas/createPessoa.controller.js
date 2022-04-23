@@ -8,6 +8,6 @@ const createPessoaController = async ( req, res ) => {
     })
     .catch( err => {
         return res.status(err.status).json({"error": err.message});
-    })
+    });
 };
 export default createPessoaController;

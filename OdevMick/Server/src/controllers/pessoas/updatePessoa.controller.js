@@ -1,0 +1,14 @@
+import updatePessoaService from "../../services/pessoas/updatePessoa.service";
+
+const updatePessoaController = async ( req, res ) => {
+    const { id } = req.params;
+    const reqBody = req.body;
+    updatePessoaService(reqBody,id)
+    .then( result => {
+      return res.json(result);
+    })
+    .catch( err => {
+      return res.status(err.status).json({"error": err.message});
+    });
+};
+export default updatePessoaController;

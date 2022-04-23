@@ -3,21 +3,9 @@ import { CustomSequelizeError } from '../../errors/customErrors';
 const createPessoaService = async (reqBody) => {
     try{
         const pessoa = await Pessoa.create(reqBody);
-        return pessoa.dataValues
+        return pessoa;
     }catch(err){
-        return await handleErrors(err);
+        return CustomSequelizeError.handleErrors(err);
     };
 };
-
-const handleErrors = async (err) =>{
-    const errors = ['SequelizeUniqueConstraintError'];
-        const messages = [
-            {"message":"email or name must be unique","status":409}
-        ];
-        errors.forEach((error,index)=>{
-            if(err.name===error){
-                throw new CustomSequelizeError(messages[index].message,messages[index].status)
-            }
-        })
-}
 export default createPessoaService;

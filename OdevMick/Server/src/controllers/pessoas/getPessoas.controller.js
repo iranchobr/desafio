@@ -6,7 +6,7 @@ const getPessoasController = ( req, res ) =>{
         return res.json(pessoas_list);
     })
     .catch( _ => {
-        return res.json({"msg":"Something went wrong"});
+        return res.status(500).json({"msg":"Something went wrong"});
     });
 };
 export default getPessoasController;
