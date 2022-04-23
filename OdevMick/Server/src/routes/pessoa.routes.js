@@ -1,7 +1,10 @@
 import { Router } from "express";
-import getPessoasController from "../controllers/getPessoas.controller";
+import getPessoasController from "../controllers/pessoas/getPessoas.controller";
+import createPessoaController from "../controllers/pessoas/createPessoa.controller";
 
 const router = Router();
 
-router.get("/pessoas",getPessoasController);
+router.get("",getPessoasController);
+router.post("",createPessoaController);
+
 export default router;

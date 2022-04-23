@@ -4,7 +4,7 @@ const port = 3000;
 const app = express();
 
 app.use(express.json());
-app.use(pessoasRouter);
+app.use("/pessoas",pessoasRouter);
 
 app.listen(port,()=>{
   console.log(`App running in ${port}`);
