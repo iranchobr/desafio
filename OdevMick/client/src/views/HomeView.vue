@@ -15,7 +15,7 @@
       <router-link class="my-2 text-center container__link" to="/lotes"
         >Lotes</router-link
       >
-      <router-link class="my-2 text-center container__link" to="/animaislotes"
+      <router-link class="my-2 text-center container__link" to="/animais_lotes"
         >Animais X Lotes</router-link
       >
     </nav>

@@ -23,6 +23,22 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import("../views/LotesView.vue"),
   },
+  {
+    path: "/animais",
+    name: "animais",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import("../views/AnimaisView.vue"),
+  },
+  {
+    path: "/animais_lotes",
+    name: "animais_lotes",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import("../views/AnimaisLotesView.vue"),
+  },
 ];
 
 const router = createRouter({
