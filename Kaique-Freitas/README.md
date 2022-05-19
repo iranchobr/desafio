@@ -2,7 +2,7 @@
 
 cd "nome do projeto" 
 
-Criar e configurar arquivo ".env" com base no ".env.example"
+No backend, criar e configurar arquivo ".env" com base no ".env.example"
 
 ## para baixar dependências 
 
